@@ -42,6 +42,7 @@ public class SuitListener implements ITestListener, IAnnotationTransformer {
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
+        System.out.println("iTestResult"+iTestResult);
         // TODO Auto-generated method stub
 
         String fileName = System.getProperty("user.dir")+ File.separator+"screenshots"+File.separator+iTestResult.getMethod().getMethodName();

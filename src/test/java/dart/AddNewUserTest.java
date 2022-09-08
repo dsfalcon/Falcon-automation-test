@@ -8,11 +8,13 @@ import org.testng.annotations.Test;
 import test.java.BaseTest;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AddNewUserTest extends LoginTest {
 
     @Test(dataProvider = "endUserData")
-    public void AddNewUseMethod(String fName, String lName, String mNumber, String email) throws InterruptedException, IOException {
+    public void AddNewUserMethod(String fName, String lName, String mNumber, String email) throws InterruptedException, IOException {
         super.LoginMethodDart();
 
         /*Add new user to portal */
@@ -24,7 +26,7 @@ public class AddNewUserTest extends LoginTest {
         EndUserEvents endUserEvents = new EndUserEvents(driver);
         endUserEvents.addNewUser(fName,lName,mNumber,email);
         logger.info("User added successfully");
-        logger.addScreenCaptureFromPath("../screenshots/AddNewUseMethod.png");
+        logger.addScreenCaptureFromPath("../screenshots/AddNewUserMethod.png");
 
 
 
