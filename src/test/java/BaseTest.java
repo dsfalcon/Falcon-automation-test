@@ -91,7 +91,12 @@ public class BaseTest {
             logger.log(Status.PASS, m);
 
         } else if (result.getStatus() == ITestResult.FAILURE) {
-
+            String methodName = result.getMethod().getMethodName();
+            String logText = "Test Case: " + methodName + "Failed";
+            Markup m = MarkupHelper.createLabel(logText, ExtentColor.RED);
+            logger.log(Status.FAIL, m);
+        }
+         else if (result.getStatus() == ITestResult.SKIP) {
             String methodName = result.getMethod().getMethodName();
             String logText = "Test Case: " + methodName + "Failed";
             Markup m = MarkupHelper.createLabel(logText, ExtentColor.RED);
