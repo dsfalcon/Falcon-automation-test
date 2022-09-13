@@ -19,8 +19,8 @@ public class LoginPageElements {
     @CacheLookup
     public
     WebElement nxtButton;
-
-    @FindBy(xpath = "/html/body/app-root/div/app-pre-auth/app-company/div/form/div[1]/div/div/p")
+    /* *************************** Error Message ****************************** */
+    @FindBy(xpath = "/html/body/app-root/div/app-pre-auth/app-company/div/form/div[1]/div/div")
     @CacheLookup
     public WebElement loginPageErrorMsg;
 

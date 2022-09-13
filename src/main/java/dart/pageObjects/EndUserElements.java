@@ -55,6 +55,27 @@ public class EndUserElements extends BaseTest {
     @CacheLookup
     public  WebElement submitBtn;
 
+    /* *********************************************** Page Errors ****************************************************************** */
+
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[1]/div")
+    @CacheLookup
+    public WebElement firstNameErr;
+
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[3]/div")
+    @CacheLookup
+    public WebElement moNumberErr;
+
+     @FindBy(xpath = "/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[4]/div[2]")
+    @CacheLookup
+    public WebElement roleErr;
+
+     @FindBy(xpath = "/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[7]")
+    @CacheLookup
+    public WebElement genderErr;
+
+
+
+
 
 
 }

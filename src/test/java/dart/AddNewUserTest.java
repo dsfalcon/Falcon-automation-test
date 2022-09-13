@@ -25,7 +25,7 @@ public class AddNewUserTest extends LoginTest {
 
         EndUserEvents endUserEvents = new EndUserEvents(driver);
         endUserEvents.addNewUser(fName,lName,mNumber,email);
-        logger.info("User added successfully");
+        endUserEvents.btnSubmit();
         logger.addScreenCaptureFromPath("../screenshots/AddNewUserMethod.png");
 
     }

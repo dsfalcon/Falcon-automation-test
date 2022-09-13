@@ -10,7 +10,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.IReporter;
+
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 import static test.java.BaseTest.driver;
 import static test.java.BaseTest.logger;
 
@@ -26,10 +29,10 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
     }
 
     WebDriver ldriver;
-    public LoginPageEvents (WebDriver rdriver)
-    {
-        ldriver=rdriver;
-        PageFactory.initElements(rdriver,this);
+
+    public LoginPageEvents(WebDriver rdriver) {
+        ldriver = rdriver;
+        PageFactory.initElements(rdriver, this);
     }
 
 
@@ -40,49 +43,34 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
         Thread.sleep(3000);
         String err1 = "Enterprise not authorised. ";
         String err2 = "Please enter your company code ";
+        String err3 = "Company code must have 2 characters or more ";
+        String err4 = "Sorry, this company code is invalid. Please try again! ";
+
+        List<WebElement> isPresent = driver.findElements(By.xpath("/html/body/app-root/div/app-pre-auth/app-company/div/form/div[1]/div/div"));
+        /*Need to check with link text*/
+        boolean isvalid = isPresent.size() > 0;
 
 
-
-       /* if(loginPageErrorMsg.getText().contains(err1) || loginPageErrorMsg.getText().contains(err2)){
-            logger.info("Error Found: Not Able to Login ");
-        }*/
-//      try{
-
-//          String err =  loginPageErrorMsg.getText();
-//          logger.info("loginPageErrorMsg ----------"+err);
-
-//          Boolean isPresent = driver.findElements(By.xpath("/html/body/app-root/div/app-pre-auth/app-company/div/form/div[1]/div/div/p")).size() > 0;
-//          Boolean isPresent = err.length() > 0;
-          WebElement my_element = (WebElement) driver.findElements(By.xpath("/html/body/app-root/div/app-pre-auth/app-company/div/form/div[1]/div/div/p"));
-          ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", my_element);
-
-
-              if(String.valueOf(my_element).equalsIgnoreCase(err1)){
-                  logger.info("Error Found:"+err1);
-              }
-              else if(String.valueOf(my_element).equalsIgnoreCase(err2)){
-                  logger.info("Error Found:"+err2);
-              }
-          else
-          {
-              username.sendKeys(config.username());
-              Thread.sleep(3000);
-
-              sendOTP.click();
-              Thread.sleep(3000);
-
-              enterOTP.sendKeys(config.otp());
-              Thread.sleep(3000);
-              loginButton.click();
-              driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-          }
-//      }
-//      catch (Exception e){
-//          System.out.println("***************************************");
-//          System.out.println("loginPageErrorMsg ----------"+ e);
-//          System.out.println("***************************************");
-//         // logger.log(e);
-//      }
+        if (isvalid) {
+            if (String.valueOf(loginPageErrorMsg.getText()).equalsIgnoreCase(err1)) {
+                logger.info("Error Found: " + err1);
+            } else if (String.valueOf(loginPageErrorMsg.getText()).equalsIgnoreCase(err2)) {
+                logger.info("Error Found: " + err2);
+            } else if (String.valueOf(loginPageErrorMsg.getText()).equalsIgnoreCase(err3)) {
+                logger.info("Error Found: " + err3);
+            } else if (String.valueOf(loginPageErrorMsg.getText()).equalsIgnoreCase(err4)) {
+                logger.info("Error Found: " + err4);
+            }
+        } else {
+            username.sendKeys(config.username());
+            Thread.sleep(3000);
+            sendOTP.click();
+            Thread.sleep(3000);
+            enterOTP.sendKeys(config.otp());
+            Thread.sleep(3000);
+            loginButton.click();
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        }
 
     }
 }
