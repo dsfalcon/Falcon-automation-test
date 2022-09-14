@@ -61,7 +61,7 @@ public class EndUserElements extends BaseTest {
     @CacheLookup
     public WebElement firstNameErr;
 
-    @FindBy(xpath = "/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[3]/div")
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[3]/div/p")
     @CacheLookup
     public WebElement moNumberErr;
 

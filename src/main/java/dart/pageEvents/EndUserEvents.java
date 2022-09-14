@@ -64,25 +64,23 @@ public class EndUserEvents extends EndUserElements {
         String genderErr1 = "Please select gender";
 
 
-        List<WebElement> isPresentFullName = driver.findElements(By.xpath("/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[1]/div"));
-        List<WebElement> isPresentMobile = driver.findElements(By.xpath("/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[3]/div"));
-        List<WebElement> isPresentRole = driver.findElements(By.xpath("/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[4]/div[2]"));
-        List<WebElement> isPresentGender = driver.findElements(By.xpath("/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[7]"));
-        /*Need to check with link text*/
-        boolean isFirstNameVailid = isPresentFullName.size() > 0;
-        isFirstNameVailid = false;
-        boolean isMobileVailid = isPresentMobile.size() > 0;
-        boolean isRoleVailid = isPresentRole.size() > 0;
-        boolean isGenderVailid = isPresentGender.size() > 0;
+        String isFirstNameVailid = firstNameErr.getText();
+        String isMobileVailid = moNumberErr.getText();
+        String isMobileVailid2 = moNumberErr.getText();
+        String isMobileVailid3 = moNumberErr.getText();
+        String isRoleVailid = roleErr.getText();
+        String isGenderVailid = genderErr.getText();
 
 
-        if (isFirstNameVailid) {
+        if (isFirstNameVailid != null && isFirstNameVailid.equalsIgnoreCase(fstNameErr1)) {
             if (String.valueOf(firstNameErr.getText()).equalsIgnoreCase(fstNameErr1)) {
                 logger.info("Error Found: " + fstNameErr1);
             } else if (String.valueOf(firstNameErr.getText()).equalsIgnoreCase(fstNameErr2)) {
                 logger.info("Error Found: " + fstNameErr2);
             }
-        } else if (isMobileVailid) {
+
+        } else if ((isMobileVailid.equalsIgnoreCase(moNumberErr1))|| (isMobileVailid2.equalsIgnoreCase(moNumberErr2))|| (isMobileVailid3.equalsIgnoreCase(moNumberErr3)))  {
+
             if (String.valueOf(moNumberErr.getText()).equalsIgnoreCase(moNumberErr1)) {
                 logger.info("Error Found: " + moNumberErr1);
             } else if (String.valueOf(moNumberErr.getText()).equalsIgnoreCase(moNumberErr2)) {
@@ -90,19 +88,18 @@ public class EndUserEvents extends EndUserElements {
             } else if (String.valueOf(moNumberErr.getText()).equalsIgnoreCase(moNumberErr3)) {
                 logger.info("Error Found: " + moNumberErr3);
             }
-        } else if (isRoleVailid) {
+        } else if (isRoleVailid!= null && isRoleVailid.equalsIgnoreCase(roleErr1)) {
             if (String.valueOf(roleErr.getText()).equalsIgnoreCase(roleErr1)) {
                 logger.info("Error Found: " + roleErr1);
             }
 
-        } else if (isGenderVailid) {
+        } else if (isGenderVailid!= null && isGenderVailid.equalsIgnoreCase(genderErr1)) {
             if (String.valueOf(genderErr.getText()).equalsIgnoreCase(genderErr1)) {
                 logger.info("Error Found: " + genderErr1);
             }
         } else {
             logger.info("Test Passed");
         }
-
 
 
     }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Surefire suite]">
+  <test thread-count="5" verbose="0" name="Surefire test(failed)">
+    <classes>
+      <class name="test.java.kite.AddEnterpriseTest">
+        <methods>
+          <include name="afterMethodMethod"/>
+          <include name="afterTestMethod"/>
+          <include name="AddEnterpriseMethod"/>
+          <include name="beforeMethodMethod"/>
+          <include name="beforeTestMethod"/>
+        </methods>
+      </class> <!-- test.java.kite.AddEnterpriseTest -->
+      <class name="test.java.kite.LoginTest">
+        <methods>
+          <include name="afterTestMethod"/>
+          <include name="afterMethodMethod"/>
+          <include name="beforeMethodMethod"/>
+          <include name="LoginMethodKite"/>
+          <include name="beforeTestMethod"/>
+        </methods>
+      </class> <!-- test.java.kite.LoginTest -->
+      <class name="test.java.dart.AddNewUserTest">
+        <methods>
+          <include name="LoginMethodDart"/>
+          <include name="afterMethodMethod"/>
+          <include name="afterTestMethod"/>
+          <include name="beforeMethodMethod"/>
+          <include name="AddNewUserMethod"/>
+          <include name="beforeTestMethod"/>
+        </methods>
+      </class> <!-- test.java.dart.AddNewUserTest -->
+      <class name="test.java.dart.LoginTest">
+        <methods>
+          <include name="LoginMethodDart"/>
+          <include name="afterMethodMethod"/>
+          <include name="afterTestMethod"/>
+          <include name="beforeMethodMethod"/>
+          <include name="beforeTestMethod"/>
+        </methods>
+      </class> <!-- test.java.dart.LoginTest -->
+      <class name="test.java.BaseTest">
+        <methods>
+          <include name="afterTestMethod"/>
+        </methods>
+      </class> <!-- test.java.BaseTest -->
+      <class name="test.java.kite.CreateAdminTest">
+        <methods>
+          <include name="afterTestMethod"/>
+          <include name="afterMethodMethod"/>
+          <include name="CreateAdminMethod"/>
+          <include name="beforeMethodMethod"/>
+          <include name="beforeTestMethod"/>
+        </methods>
+      </class> <!-- test.java.kite.CreateAdminTest -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->

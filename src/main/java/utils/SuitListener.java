@@ -29,7 +29,7 @@ public class SuitListener implements ITestListener, IAnnotationTransformer {
     public void onTestSuccess(ITestResult iTestResult) {
         // TODO Auto-generated method stub
 
-        String fileName = System.getProperty("user.dir")+ File.separator+"screenshots"+File.separator+iTestResult.getMethod().getMethodName();
+        String fileName = System.getProperty("user.dir") + File.separator + "screenshots" + File.separator + iTestResult.getMethod().getMethodName();
         File f = ((TakesScreenshot) BaseTest.driver).getScreenshotAs(OutputType.FILE);
 
         try {
@@ -42,10 +42,10 @@ public class SuitListener implements ITestListener, IAnnotationTransformer {
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        System.out.println("iTestResult"+iTestResult);
+        System.out.println("iTestResult" + iTestResult);
         // TODO Auto-generated method stub
 
-        String fileName = System.getProperty("user.dir")+ File.separator+"screenshots"+File.separator+iTestResult.getMethod().getMethodName();
+        String fileName = System.getProperty("user.dir") + File.separator + "screenshots" + File.separator + iTestResult.getMethod().getMethodName();
         File f = ((TakesScreenshot) BaseTest.driver).getScreenshotAs(OutputType.FILE);
 
         try {
@@ -82,11 +82,11 @@ public class SuitListener implements ITestListener, IAnnotationTransformer {
 
 
     }
+
     @Override
-    public void transform(ITestAnnotation iTestAnnotation, Class aClass, Constructor constructor, Method method){
+    public void transform(ITestAnnotation iTestAnnotation, Class aClass, Constructor constructor, Method method) {
         iTestAnnotation.setRetryAnalyzer(RetryAnalyser.class);
     }
-
 
 
 }
