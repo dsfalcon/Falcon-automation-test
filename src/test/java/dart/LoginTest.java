@@ -15,7 +15,7 @@ public class LoginTest extends BaseTest {
         LoginPageEvents loginPageEvents = new LoginPageEvents(driver);
         logger.info(driver.getCurrentUrl());
         loginPageEvents.loginMethod();
-       // logger.addScreenCaptureFromPath("../screenshots/LoginMethodDart.png");
+        logger.addScreenCaptureFromPath("../screenshots/LoginMethodDart.png");
 
     }
 
