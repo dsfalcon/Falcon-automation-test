@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="2" total="5" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="131972" started-at="2022-09-16T18:23:18 IST" finished-at="2022-09-16T18:25:30 IST">
+    <groups>
+    </groups>
+    <test name="Test Automation for Dart" duration-ms="131972" started-at="2022-09-16T18:23:18 IST" finished-at="2022-09-16T18:25:30 IST">
+      <class name="test.java.dart.LoginTest">
+        <test-method status="PASS" signature="beforeTestMethod()[pri:0, instance:test.java.dart.LoginTest@80169cf]" name="beforeTestMethod" is-config="true" duration-ms="217" started-at="2022-09-16T18:23:18 IST" finished-at="2022-09-16T18:23:19 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTestMethod -->
+        <test-method status="PASS" signature="beforeMethodMethod(java.lang.String,java.lang.String,java.lang.reflect.Method)[pri:0, instance:test.java.dart.LoginTest@80169cf]" name="beforeMethodMethod" is-config="true" duration-ms="10521" started-at="2022-09-16T18:23:19 IST" finished-at="2022-09-16T18:23:29 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dart]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void test.java.dart.LoginTest.LoginMethodDart() throws java.lang.InterruptedException,java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethodMethod -->
+        <test-method status="PASS" signature="LoginMethodDart()[pri:0, instance:test.java.dart.LoginTest@80169cf]" name="LoginMethodDart" duration-ms="25702" started-at="2022-09-16T18:23:29 IST" finished-at="2022-09-16T18:23:55 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginMethodDart -->
+        <test-method status="PASS" signature="afterMethodMethod(org.testng.ITestResult)[pri:0, instance:test.java.dart.LoginTest@80169cf]" name="afterMethodMethod" is-config="true" duration-ms="617" started-at="2022-09-16T18:23:55 IST" finished-at="2022-09-16T18:23:56 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=LoginMethodDart status=SUCCESS method=LoginTest.LoginMethodDart()[pri:0, instance:test.java.dart.LoginTest@80169cf] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethodMethod -->
+        <test-method status="PASS" signature="afterTestMethod()[pri:0, instance:test.java.dart.LoginTest@80169cf]" name="afterTestMethod" is-config="true" duration-ms="256" started-at="2022-09-16T18:25:30 IST" finished-at="2022-09-16T18:25:30 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTestMethod -->
+      </class> <!-- test.java.dart.LoginTest -->
+      <class name="test.java.dart.AddNewUserTest">
+        <test-method status="PASS" signature="beforeMethodMethod(java.lang.String,java.lang.String,java.lang.reflect.Method)[pri:0, instance:test.java.dart.AddNewUserTest@2698dc7]" name="beforeMethodMethod" is-config="true" duration-ms="9089" started-at="2022-09-16T18:23:56 IST" finished-at="2022-09-16T18:24:05 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dart]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void test.java.dart.AddNewUserTest.AddNewUserMethod(java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.lang.InterruptedException,java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethodMethod -->
+        <test-method status="PASS" signature="AddNewUserMethod(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:test.java.dart.AddNewUserTest@2698dc7]" name="AddNewUserMethod" duration-ms="48533" started-at="2022-09-16T18:24:05 IST" data-provider="endUserData" finished-at="2022-09-16T18:24:54 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[sethiya]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[8008008014]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[sethiya.dinesh@mailinator.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddNewUserMethod -->
+        <test-method status="PASS" signature="afterMethodMethod(org.testng.ITestResult)[pri:0, instance:test.java.dart.AddNewUserTest@2698dc7]" name="afterMethodMethod" is-config="true" duration-ms="609" started-at="2022-09-16T18:24:54 IST" finished-at="2022-09-16T18:24:54 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AddNewUserMethod status=SUCCESS method=AddNewUserTest.AddNewUserMethod(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:test.java.dart.AddNewUserTest@2698dc7] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethodMethod -->
+        <test-method status="PASS" signature="beforeMethodMethod(java.lang.String,java.lang.String,java.lang.reflect.Method)[pri:0, instance:test.java.dart.AddNewUserTest@2698dc7]" name="beforeMethodMethod" is-config="true" duration-ms="9197" started-at="2022-09-16T18:24:54 IST" finished-at="2022-09-16T18:25:04 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dart]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void test.java.dart.LoginTest.LoginMethodDart() throws java.lang.InterruptedException,java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethodMethod -->
+        <test-method status="PASS" signature="LoginMethodDart()[pri:0, instance:test.java.dart.AddNewUserTest@2698dc7]" name="LoginMethodDart" duration-ms="25650" started-at="2022-09-16T18:25:04 IST" finished-at="2022-09-16T18:25:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginMethodDart -->
+        <test-method status="PASS" signature="afterMethodMethod(org.testng.ITestResult)[pri:0, instance:test.java.dart.AddNewUserTest@2698dc7]" name="afterMethodMethod" is-config="true" duration-ms="593" started-at="2022-09-16T18:25:29 IST" finished-at="2022-09-16T18:25:30 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=LoginMethodDart status=SUCCESS method=LoginTest.LoginMethodDart()[pri:0, instance:test.java.dart.AddNewUserTest@2698dc7] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethodMethod -->
+      </class> <!-- test.java.dart.AddNewUserTest -->
+    </test> <!-- Test Automation for Dart -->
+  </suite> <!-- Suite -->
+</testng-results>
