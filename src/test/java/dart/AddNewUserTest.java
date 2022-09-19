@@ -1,15 +1,12 @@
 package test.java.dart;
 
-import main.java.dart.pageEvents.EndUserEvents;
+import main.java.dart.pageEvents.EndUserPageEvents;
 import main.java.dart.pageEvents.SideBarEvents;
 import main.java.utils.XLUtils;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import test.java.BaseTest;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class AddNewUserTest extends LoginTest {
 
@@ -23,7 +20,7 @@ public class AddNewUserTest extends LoginTest {
         logger.info("Clicked on SideBar");
         logger.info(fName+lName+mNumber);
 
-        EndUserEvents endUserEvents = new EndUserEvents(driver);
+        EndUserPageEvents endUserEvents = new EndUserPageEvents(driver);
         endUserEvents.addNewUser(fName,lName,mNumber,email);
         endUserEvents.btnSubmit();
         logger.addScreenCaptureFromPath("../screenshots/AddNewUserMethod.png");

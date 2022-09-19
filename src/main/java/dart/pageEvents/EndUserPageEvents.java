@@ -1,20 +1,14 @@
 package main.java.dart.pageEvents;
 
-import main.java.dart.pageObjects.EndUserElements;
-import org.openqa.selenium.By;
+import main.java.dart.pageObjects.EndUserPageElements;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-public class EndUserEvents extends EndUserElements {
+public class EndUserPageEvents extends EndUserPageElements {
 
     WebDriver ldriver;
 
-    public EndUserEvents(WebDriver rdriver) {
+    public EndUserPageEvents(WebDriver rdriver) {
         ldriver = rdriver;
         PageFactory.initElements(rdriver, this);
     }

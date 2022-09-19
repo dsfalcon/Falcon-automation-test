@@ -20,4 +20,17 @@ public class SideBarElements {
     @CacheLookup
     public WebElement endUser;
 
+    /*Real Time Data*/
+    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-post-auth-menu/div/div[2]/div[5]/app-menu-item/div/div/span/span[1]")
+    @CacheLookup
+    public WebElement realTimeData;
+
+     /*Transaction*/
+    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-post-auth-menu/div/div[2]/div[5]/app-menu-item/div/div/span/span[3]/app-sub-menu-item[1]/div/a")
+    @CacheLookup
+    public WebElement transaction;
+
+
+
+
 }

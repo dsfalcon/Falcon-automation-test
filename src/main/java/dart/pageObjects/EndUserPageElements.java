@@ -5,7 +5,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import test.java.BaseTest;
 
-public class EndUserElements extends BaseTest {
+public class EndUserPageElements extends BaseTest {
 
     /*Add new user Btton*/
     @FindBy(xpath = "/html/body/app-root/app-post-auth/app-users/div/app-user-header/div/div[2]/div[2]/div[1]/button")
