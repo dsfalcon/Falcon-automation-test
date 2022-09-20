@@ -37,10 +37,13 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
 
 
     public void loginMethod() throws InterruptedException {
-        Thread.sleep(3000);
+        try {
+
+
+//        Thread.sleep(3000);
         enterpriseId.sendKeys(config.enterpriseId());
         nxtButton.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         String err1 = "Enterprise not authorised. ";
         String err2 = "Please enter your company code ";
         String err3 = "Company code must have 2 characters or more ";
@@ -52,6 +55,7 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
 
 
         if (isvalid) {
+            logger.info("isvalid " + isvalid);
             if (String.valueOf(loginPageErrorMsg.getText()).equalsIgnoreCase(err1)) {
                 logger.info("Error Found: " + err1);
             } else if (String.valueOf(loginPageErrorMsg.getText()).equalsIgnoreCase(err2)) {
@@ -62,16 +66,18 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
                 logger.info("Error Found: " + err4);
             }
         } else {
+            logger.info("isvalidElse " + isvalid);
             username.sendKeys(config.username());
-            Thread.sleep(3000);
             sendOTP.click();
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             enterOTP.sendKeys(config.otp());
-            Thread.sleep(3000);
             loginButton.click();
+            Thread.sleep(3000);
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         }
-
+        }catch (Exception e){
+            logger.info(""+e.getMessage());
+        }
     }
 }
 

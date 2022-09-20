@@ -28,11 +28,11 @@ public class SuitListener implements ITestListener, IAnnotationTransformer {
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
         // TODO Auto-generated method stub
-
+        try {
         String fileName = System.getProperty("user.dir") + File.separator + "screenshots" + File.separator + iTestResult.getMethod().getMethodName();
         File f = ((TakesScreenshot) BaseTest.driver).getScreenshotAs(OutputType.FILE);
 
-        try {
+
             FileHandler.copy(f, new File(fileName + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
@@ -44,11 +44,11 @@ public class SuitListener implements ITestListener, IAnnotationTransformer {
     public void onTestFailure(ITestResult iTestResult) {
         System.out.println("iTestResult" + iTestResult);
         // TODO Auto-generated method stub
-
+        try {
         String fileName = System.getProperty("user.dir") + File.separator + "screenshots" + File.separator + iTestResult.getMethod().getMethodName();
         File f = ((TakesScreenshot) BaseTest.driver).getScreenshotAs(OutputType.FILE);
 
-        try {
+
             FileHandler.copy(f, new File(fileName + ".png"));
         } catch (IOException e) {
             e.printStackTrace();

@@ -21,4 +21,14 @@ public class SideBarEvents extends SideBarElements {
         program.click();
     }
 
+    /* Go to transaction*/
+    public void goToTransaction() throws InterruptedException {
+        realTimeData.click();
+        transaction.click();
+        Thread.sleep(3000);
+
+    }
+
+
+
 }

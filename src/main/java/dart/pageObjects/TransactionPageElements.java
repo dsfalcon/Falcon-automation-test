@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
-public class TransactionsPageElements {
+public class TransactionPageElements {
 
     /*Search box*/
     @FindBy(xpath = "/html/body/app-root/app-post-auth/app-transactions/div/div/app-transactions-header/div/div[1]/input")
@@ -40,12 +40,9 @@ public class TransactionsPageElements {
     @CacheLookup
     public WebElement toSelectYear;
 
-    /**/
-    @FindBy(xpath = "/html/body/div[1]/div[2]/div/mat-datepicker-content/mat-calendar/mat-calendar-header/div/div/button[1]/span/text()")
-    @CacheLookup
-    public WebElement toSelectYear;
 
-    xpath=//mat-calendar[@id='mat-datepicker-2']/div/mat-month-view/table/tbody/tr[5]/td[3]/div
+
+   /* xpath=//mat-calendar[@id='mat-datepicker-2']/div/mat-month-view/table/tbody/tr[5]/td[3]/div*/
 
 
 
@@ -55,6 +52,11 @@ public class TransactionsPageElements {
     @FindBy(xpath = " /html/body/app-dialog/div/div/app-transactions-filter/div/div[2]/div[1]/div/mat-form-field/div/div[1]/div[2]/mat-datepicker-toggle/button")
     @CacheLookup
     public WebElement clickOnToCalenderIcon;
+
+    /*Button Apply*/
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-transactions-filter/div/div[2]/div[8]/div[2]/button")
+    @CacheLookup
+    public WebElement btnApply;
 
 
 
