@@ -36,16 +36,27 @@ public class TransactionPageElements {
     public WebElement clickOnFromCalenderIcon;
 
     /*To Select Year 2016 - 2039*/
-    @FindBy(xpath = "/html/body/div[1]/div[2]/div/mat-datepicker-content/mat-calendar/mat-calendar-header/div/div/button[1]/span/text()")
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div/mat-datepicker-content/mat-calendar/mat-calendar-header/div/div/button[1]/span")
     @CacheLookup
     public WebElement toSelectYear;
 
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div/mat-datepicker-content/mat-calendar/mat-calendar-header/div/div/button[2]")
+    @CacheLookup
+    public WebElement yearPrevious;
+
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div/mat-datepicker-content/mat-calendar/mat-calendar-header/div/div/button[3]")
+    @CacheLookup
+    public WebElement yearNext;
+
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div/mat-datepicker-content/mat-calendar/div/mat-multi-year-view/table/tbody/tr[1]/td[1]/div")
+    @CacheLookup
+    public WebElement selectedYear;
 
 
-   /* xpath=//mat-calendar[@id='mat-datepicker-2']/div/mat-month-view/table/tbody/tr[5]/td[3]/div*/
 
 
 
+    /* xpath=//mat-calendar[@id='mat-datepicker-2']/div/mat-month-view/table/tbody/tr[5]/td[3]/div*/
 
 
     /*To Date */
@@ -57,7 +68,6 @@ public class TransactionPageElements {
     @FindBy(xpath = "/html/body/app-dialog/div/div/app-transactions-filter/div/div[2]/div[8]/div[2]/button")
     @CacheLookup
     public WebElement btnApply;
-
 
 
 }
