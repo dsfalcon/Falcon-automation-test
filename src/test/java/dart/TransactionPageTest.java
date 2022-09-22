@@ -11,21 +11,26 @@ import java.io.IOException;
 public class TransactionPageTest extends LoginTest {
 
     @Test(dataProvider = "endUserData")
-    public void TransactionPageMethod(String exDay, String exMonth, String exYear) throws InterruptedException, IOException {
+    public void TransactionPageMethod(String exDay, String exMonth, String exYear,String exDay2, String exMonth2, String exYear2) throws InterruptedException, IOException {
         super.LoginMethodDart();
         logger.info("TransactionPageMethod"+exDay+"--------"+exMonth+"--------"+exYear);
+        logger.info("Date Data -------> "+exDay2+"--------"+exMonth2+"--------"+exYear2);
         logger.info("AfterTransactionPageMethod");
 
         /*Add new user to portal */
         SideBarEvents sideBarEvents = new SideBarEvents(driver);
-        logger.info("sideBarEvents *******"+sideBarEvents.toString());
         sideBarEvents.goToTransaction();
         logger.info("Clicked on SideBar");
         logger.info(exDay+exMonth+exYear);
 
         TransactionPageEvents transactionPageEvents = new TransactionPageEvents(driver);
         transactionPageEvents.filterData();
-        transactionPageEvents.SelectDate(exDay,exMonth,exYear);
+        transactionPageEvents.SelectFromDate(exDay,exMonth,exYear);
+        transactionPageEvents.SelectToDate(exDay2,exMonth2,exYear2);
+        transactionPageEvents.amountFilter();
+        transactionPageEvents.transactionTypesFilter();
+        transactionPageEvents.transactionChannelFilter();
+        transactionPageEvents.cardTypeFilter();
         transactionPageEvents.btnSubmit();
         logger.addScreenCaptureFromPath("../screenshots/TransactionPageMethod.png");
     }
@@ -34,7 +39,6 @@ public class TransactionPageTest extends LoginTest {
     @DataProvider(name="endUserData")
     Object[][] getData() throws IOException {
         String path=System.getProperty("user.dir")+"/datafiles/"+"enduserdata1.xlsx";
-//        String path=System.getProperty("user.dir")+"/datafiles/"+"enduserdata1.xlsx";
         logger.info(path);
         int rownum= XLUtils.getRowCount(path, "Sheet3");
         int colcount= XLUtils.getCellCount(path, "Sheet3", 1);
