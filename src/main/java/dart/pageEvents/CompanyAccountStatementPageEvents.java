@@ -51,29 +51,61 @@ public class CompanyAccountStatementPageEvents extends CompanyAccountStatementPa
         Thread.sleep(2000);
     }
 
-    public void SelectFromDate(String exDay, String exMonth, String exYear) throws InterruptedException){
+    public void selectFromDate(String exDay, String exMonth, String exYear) throws InterruptedException {
         DatePicker.FromDate(
                 exYear,
                 exMonth,
                 exDay,
-                filterCalenderButtonIcon,
+                clickOnFromCalenderIcon,
                 toSelectYear,
                 yearPrevious,
                 yearNext
         );
 
     }
-    public void SelectToDate(String exDay2, String exMonth2, String exYear2) throws InterruptedException {
+    public void selectToDate(String exDay2, String exMonth2, String exYear2) throws InterruptedException {
 
         DatePicker.ToDate(
                 exYear2,
                 exMonth2,
                 exDay2,
-                filterToDateButtonIcon,
+                clickOnToCalenderIcon,
                 toSelectYear2,
                 yearPrevious,
                 yearNext
         );
+    }
+
+    public void amount() throws InterruptedException {
+
+    clickOnEnterAmount.click();
+    Thread.sleep(1000);
+    enterAmount.sendKeys("100");
+    }
+
+    public void transactionTypesFilter(){
+    debit.click();
+    credit.click();
+    reversal.click();
+    }
+
+    public void btnSubmit(){
+    btnApply.click();
+    }
+
+    public void checkForErr(){
+        try {
+            String err = filterErr.getText();
+            String selectFilterError = "Please select a filter first.";
+            if (err.equalsIgnoreCase(selectFilterError)){
+                logger.info("Error found: "+selectFilterError);
+
+            }
+        }
+        catch (Exception e)
+        {
+            logger.info("Exception Found: "+e);
+        }
     }
 
 }

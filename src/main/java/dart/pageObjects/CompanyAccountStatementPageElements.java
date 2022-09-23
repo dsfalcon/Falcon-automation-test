@@ -33,13 +33,13 @@ public class CompanyAccountStatementPageElements {
     @CacheLookup
     public WebElement filterButton;
 
-    @FindBy(xpath = "/html/body/app-dialog/div/div/app-company-statement-filter/div/div[2]/div[1]/div/mat-form-field/div/div[1]/div[2]/mat-datepicker-toggle/button/span/svg")
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-company-statement-filter/div/div[2]/div[1]/div/mat-form-field/div/div[1]/div[2]/mat-datepicker-toggle/button")
     @CacheLookup
-    public WebElement filterCalenderButtonIcon;
+    public WebElement clickOnFromCalenderIcon;
 
-    @FindBy(xpath = "/html/body/app-dialog/div/div/app-company-statement-filter/div/div[2]/div[2]/div/mat-form-field/div/div[1]/div[2]/mat-datepicker-toggle/button/span/svg")
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-company-statement-filter/div/div[2]/div[2]/div/mat-form-field/div/div[1]/div[2]/mat-datepicker-toggle/button")
     @CacheLookup
-    public WebElement filterToDateButtonIcon;
+    public WebElement clickOnToCalenderIcon;
 
     @FindBy(xpath = "/html/body/div[1]/div[2]/div/mat-datepicker-content/mat-calendar/mat-calendar-header/div/div/button[1]/span")
     @CacheLookup
@@ -64,9 +64,43 @@ public class CompanyAccountStatementPageElements {
     public WebElement clickOnEnterAmount;
 
     /*Enter Amount*/
-    @FindBy(xpath = "/html/body/app-dialog/div/div/app-transactions-filter/div/div[2]/div[3]/div/div[2]/p/input")
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-company-statement-filter/div/div[2]/div[3]/div/div[2]/p/input")
     @CacheLookup
     public WebElement enterAmount;
+
+    /* ************************************ Transaction Types ********************************* */
+
+    /*Debit*/
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-company-statement-filter/div/div[2]/div[4]/div/ul/li[1]/label[2]")
+    @CacheLookup
+    public WebElement debit;
+
+    /*Credit*/
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-company-statement-filter/div/div[2]/div[4]/div/ul/li[2]/label[2]")
+    @CacheLookup
+    public WebElement credit;
+
+    /*Reversal*/
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-company-statement-filter/div/div[2]/div[4]/div/ul/li[3]/label[2] ")
+    @CacheLookup
+    public WebElement reversal;
+
+    /*Apply Button*/
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-company-statement-filter/div/div[2]/div[6]/div[2]/button")
+    @CacheLookup
+    public WebElement btnApply;
+
+
+  /*Filter Error*/
+    @FindBy(xpath = "/html/body/app-root/app-notification/div/div/div/p[1]")
+    @CacheLookup
+    public WebElement filterErr;
+
+
+
+
+
+
 
 
 

@@ -25,8 +25,8 @@ public class TransactionPageTest extends LoginTest {
 
         TransactionPageEvents transactionPageEvents = new TransactionPageEvents(driver);
         transactionPageEvents.filterData();
-        transactionPageEvents.SelectFromDate(exDay,exMonth,exYear);
-        transactionPageEvents.SelectToDate(exDay2,exMonth2,exYear2);
+        transactionPageEvents.selectFromDate(exDay,exMonth,exYear);
+        transactionPageEvents.selectToDate(exDay2,exMonth2,exYear2);
         transactionPageEvents.amountFilter();
         transactionPageEvents.transactionTypesFilter();
         transactionPageEvents.transactionChannelFilter();

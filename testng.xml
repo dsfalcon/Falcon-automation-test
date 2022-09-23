@@ -18,9 +18,11 @@
         <parameter name="browserName" value="chrome"></parameter>
         <parameter name="projectName" value="dart"></parameter>
         <classes>
-            <class name="test.java.dart.LoginTest"/>
+           <!-- <class name="test.java.dart.LoginTest"/>
+            <class name="test.java.dart.AddNewUserTest"></class>
             <class name="test.java.dart.TransactionPageTest"></class>
-<!--            <class name="test.java.dart.AddNewUserTest"></class>-->
+            <class name="test.java.dart.CompanyAccountStatementTest"></class>-->
+            <class name="test.java.dart.BusinessReportTest"></class>
         </classes>
     </test> <!-- Test -->
 

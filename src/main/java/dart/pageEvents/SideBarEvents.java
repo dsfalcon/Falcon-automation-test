@@ -29,6 +29,21 @@ public class SideBarEvents extends SideBarElements {
 
     }
 
+    public void goToCompanyAccountStatement() throws InterruptedException {
+        realTimeData.click();
+        companyAccountStatement.click();
+        Thread.sleep(3000);
+
+    }
+
+public void goToBusinessReport() throws InterruptedException {
+        businessReport.click();
+        Thread.sleep(3000);
+
+    }
+
+
+
 
 
 }

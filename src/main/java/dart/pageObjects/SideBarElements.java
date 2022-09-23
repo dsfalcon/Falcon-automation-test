@@ -36,6 +36,12 @@ public class SideBarElements {
     public WebElement companyAccountStatement;
 
 
+    /*Business Report*/
+    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-post-auth-menu/div/div[2]/div[4]/app-menu-item/div/div/span/a")
+    @CacheLookup
+    public WebElement businessReport;
+
+
 
 
 

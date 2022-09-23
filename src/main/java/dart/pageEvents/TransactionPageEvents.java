@@ -29,7 +29,7 @@ public class TransactionPageEvents extends TransactionPageElements {
         Thread.sleep(2000);
     }
 
-    public void SelectFromDate(String exDay, String exMonth, String exYear) throws InterruptedException {
+    public void selectFromDate(String exDay, String exMonth, String exYear) throws InterruptedException {
         DatePicker.FromDate(
                 exYear,
                 exMonth,
@@ -41,7 +41,7 @@ public class TransactionPageEvents extends TransactionPageElements {
         );
     }
 
-    public void SelectToDate(String exDay2, String exMonth2, String exYear2) throws InterruptedException {
+    public void selectToDate(String exDay2, String exMonth2, String exYear2) throws InterruptedException {
 
         DatePicker.ToDate(
                 exYear2,
