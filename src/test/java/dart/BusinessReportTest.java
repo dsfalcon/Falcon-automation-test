@@ -33,21 +33,29 @@ public class BusinessReportTest extends LoginTest {
     }
 
 
-    @DataProvider(name = "endUserData")
+    @DataProvider(name="endUserData")
     Object[][] getData() throws IOException {
-        String path = System.getProperty("user.dir")+"/datafiles/"+"businessReportData.xlsx";
-        logger.info(path);
-        int rownum = XLUtils.getRowCount(path, "Sheet1");
-        int colcount = XLUtils.getCellCount(path, "Sheet1", 1);
+        String[][] logindata = new String[0][];
+        try {
 
-        String[][] logindata = new String[rownum][colcount];
+            String path = System.getProperty("user.dir") + "/datafiles/" + "businessReportData.xlsx";
+            logger.info(path);
+            int rownum = XLUtils.getRowCount(path, "Sheet2");
+            int colcount = XLUtils.getCellCount(path, "Sheet2", 1);
 
-        for (int i = 1; i <= rownum; i++) {
-            for (int j = 0; j < colcount; j++) {
-                logindata[i - 1][j] = XLUtils.getCellData(path, "Sheet1", i, j);
+            logindata = new String[rownum][colcount];
+
+            for (int i = 1; i <= rownum; i++) {
+                for (int j = 0; j < colcount; j++) {
+                    logindata[i - 1][j] = XLUtils.getCellData(path, "Sheet2", i, j);
+                }
             }
+            logger.info(String.valueOf(logindata));
+
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        logger.info(String.valueOf(logindata));
         return logindata;
     }
+
 }
