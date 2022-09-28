@@ -16,6 +16,12 @@ public interface FrameworkConfig extends Config {
     @Key("${environment}.pass")
     String pass();
 
+    @Key("${environment}.finemail")
+    String finemail();
+
+    @Key("${environment}.finpass")
+    String finpass();
+
 
     /*For Dart Portal*/
 

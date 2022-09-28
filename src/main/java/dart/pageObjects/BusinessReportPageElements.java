@@ -20,23 +20,27 @@ public class BusinessReportPageElements {
     *
     * */
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-business-reports/div/div/div/app-business-reports-header/div/div[1]/input")
     @CacheLookup
     public WebElement search;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-business-reports/div/div/div/app-business-reports-header/div/div[2]/div[2]/div/button")
     @CacheLookup
     public WebElement downloadReport;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-business-reports/div/div/div/app-business-reports-filter/div/div[1]/app-business-report-type/div[1]/div[2]/p-dropdown/div/div[3]/label")
+    @CacheLookup
+    public WebElement clickForReport;
+
+    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-business-reports/div/div/div/app-business-reports-filter/div/div[1]/app-business-report-type/div[1]/div[2]/p-dropdown/div/div[5]/div/ul/p-dropdownitem[1]/li")
     @CacheLookup
     public WebElement userDetailReport;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-business-reports/div/div/div/app-business-reports-filter/div/div[1]/app-business-report-type/div[1]/div[2]/p-dropdown/div/div[5]/div/ul/p-dropdownitem[2]/li")
     @CacheLookup
     public WebElement KYCReport;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-business-reports/div/div/div/app-business-reports-filter/div/div[1]/app-business-report-type/div[1]/div[2]/p-dropdown/div/div[5]/div/ul/p-dropdownitem[3]/li")
     @CacheLookup
     public WebElement cardListingReport;
 

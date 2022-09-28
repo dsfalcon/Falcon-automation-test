@@ -78,29 +78,36 @@ public  class DatePicker {
                                         logger.info("" + e.getMessage());
                                         for (int m = 2; m <= 5; m++) {
                                             for (int n = 1; n <= 7; n++) {
-//
-                                                String webElementDay = ("/html/body/div[1]/div[2]/div/mat-datepicker-content/mat-calendar/div/mat-month-view/table/tbody/tr[" + m + "]/td[" + n + "]/div");
-                                                WebElement web4 = driver.findElement(By.xpath(webElementDay));
-                                                logger.info("WEBELEMENT4 *********** " + web4.getText());
-                                                if (exMonth.equals("FEB") && Integer.parseInt(exDay) > 29) {
-                                                    System.out.println("Wrong date:" + exMonth + ":" + exDay);
-                                                    logger.info("Wrong date:" + exMonth + ":" + exDay);
-                                                    return;
+                                                try {
+                                                    String webElementDay = ("/html/body/div[1]/div[2]/div/mat-datepicker-content/mat-calendar/div/mat-month-view/table/tbody/tr[" + m + "]/td[" + n + "]/div");
+                                                    WebElement web4 = driver.findElement(By.xpath(webElementDay));
+                                                    logger.info("WEBELEMENT4 *********** " + web4.getText());
+                                                    if (exMonth.equals("FEB") && Integer.parseInt(exDay) > 29) {
+                                                        System.out.println("Wrong date:" + exMonth + ":" + exDay);
+                                                        logger.info("Wrong date:" + exMonth + ":" + exDay);
+                                                        return;
+                                                    }
+                                                    if (Integer.parseInt(exDay) > 31) {
+                                                        System.out.println("wrongdate:" + exMonth + ":" + exDay);
+                                                        logger.info("wrongdate:" + exMonth + ":" + exDay);
+                                                        return;
+                                                    }
+                                                    Thread.sleep(2000);
+                                                    int day = Integer.parseInt(String.valueOf(web4.getText()));
+                                                    if (dataDay == day) {
+                                                        web4.click();
+                                                        Thread.sleep(3000);
+                                                        logger.info("DayCathclicked***********" + day);
+                                                        flagBreak = true;
+                                                        break;
+
+                                                    }
                                                 }
-                                                if (Integer.parseInt(exDay) > 31) {
-                                                    System.out.println("wrongdate:" + exMonth + ":" + exDay);
-                                                    logger.info("wrongdate:" + exMonth + ":" + exDay);
-                                                    return;
+                                                catch(Exception e1){
+                                                    logger.info("Message"+e1);
+
                                                 }
-                                                Thread.sleep(2000);
-                                                int day = Integer.parseInt(String.valueOf(web4.getText()));
-                                                if (dataDay == day) {
-                                                    web4.click();
-                                                    Thread.sleep(3000);
-                                                    logger.info("DayCathclicked***********" + day);
-                                                    flagBreak = true;
-                                                    break;
-                                                }
+
                                             }
                                             if(flagBreak){
                                                 break;

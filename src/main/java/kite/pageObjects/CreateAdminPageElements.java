@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
-public class CreateAdminElements {
+public class CreateAdminPageElements {
 
     /*Select Enterprise*/
     @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[1]/td[2]/app-title/table/tbody/tr[2]/td/table/tbody/tr/td[1]/app-select-enterprise/span[1]")

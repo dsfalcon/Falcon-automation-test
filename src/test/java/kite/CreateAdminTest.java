@@ -1,6 +1,6 @@
 package test.java.kite;
 
-import main.java.kite.pageEvents.CreateAdminEvents;
+import main.java.kite.pageEvents.CreateAdminPageEvents;
 import main.java.kite.pageEvents.SideBarEvents;
 
 import org.testng.annotations.Test;
@@ -21,7 +21,7 @@ public class CreateAdminTest extends BaseTest {
         Thread.sleep(3000);
         logger.info("Testdwadhjwlsahdswjkhfrlkwsfhlkwshfklshfklsdflksdhfjlksdhfjsdhfkjdh");
 
-        CreateAdminEvents createAdminEvents =new CreateAdminEvents(driver);
+        CreateAdminPageEvents createAdminEvents =new CreateAdminPageEvents(driver);
         createAdminEvents.createAdmin();
         logger.addScreenCaptureFromPath("../screenshots/CreateAdminMethod.png");
     }

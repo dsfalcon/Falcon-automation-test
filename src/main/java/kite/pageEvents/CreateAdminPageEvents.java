@@ -1,16 +1,16 @@
 package main.java.kite.pageEvents;
 
-import main.java.kite.pageObjects.CreateAdminElements;
+import main.java.kite.pageObjects.CreateAdminPageElements;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import static test.java.BaseTest.driver;
 import static test.java.BaseTest.logger;
 
-public class CreateAdminEvents extends CreateAdminElements {
+public class CreateAdminPageEvents extends CreateAdminPageElements {
 
     WebDriver ldriver;
-    public CreateAdminEvents(WebDriver rdriver)
+    public CreateAdminPageEvents(WebDriver rdriver)
     {
         ldriver=rdriver;
         PageFactory.initElements(rdriver,this);

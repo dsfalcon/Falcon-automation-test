@@ -1,7 +1,7 @@
 package test.java.kite;
 
 import main.java.kite.pageEvents.SideBarEvents;
-import main.java.kite.pageEvents.AddEnterpriseEvents;
+import main.java.kite.pageEvents.AddEnterprisePageEvents;
 import org.testng.annotations.Test;
 import test.java.BaseTest;
 
@@ -20,7 +20,7 @@ public class AddEnterpriseTest extends BaseTest {
         SideBarEvents sideBarEvents = new SideBarEvents(driver);
         sideBarEvents.goToAddEnterprise();
 
-        AddEnterpriseEvents addEnterpriseEvents = new AddEnterpriseEvents(driver);
+        AddEnterprisePageEvents addEnterpriseEvents = new AddEnterprisePageEvents(driver);
         addEnterpriseEvents.addEnterprise();
 
         logger.addScreenCaptureFromPath("../screenshots/AddEnterpriseMethod.png");

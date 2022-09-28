@@ -18,20 +18,24 @@ public class BusinessReportPageEvents extends BusinessReportPageElements {
     }
     public void selectReportType(String reportType) throws InterruptedException {
         String rType = reportType;
+        logger.info("Report type in Event page:"+reportType);
         switch (rType) {
-            case "User Details":
+            case "Users Details":
+                clickForReport.click();
                 userDetailReport.click();
-                Thread.sleep(1000);
+                Thread.sleep(5000);
                 logger.info("User Details Selected");
                 break;
             case "KYC":
+                clickForReport.click();
                 KYCReport.click();
-                Thread.sleep(1000);
+                Thread.sleep(5000);
                 logger.info("KYC Report Selected");
                 break;
             case "Card Listing":
+                clickForReport.click();
                 cardListingReport.click();
-                Thread.sleep(1000);
+                Thread.sleep(5000);
                 logger.info("Card Listing Report Selected");
                 break;
             default:
@@ -72,8 +76,19 @@ public class BusinessReportPageEvents extends BusinessReportPageElements {
         );
     }
 
-    public void btnSubmit(){
+    public void searchForData(String searchData) throws InterruptedException {
+        if (searchData.length()>3){
+            search.sendKeys(searchData);
+            Thread.sleep(5000);
+        }
+        else {
+            logger.info("No Data For Search");
+        }
+    }
+
+    public void btnSubmit() throws InterruptedException {
         viewReport.click();
+        Thread.sleep(2000);
     }
 
 

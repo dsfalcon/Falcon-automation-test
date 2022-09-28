@@ -1,15 +1,15 @@
 package main.java.kite.pageEvents;
 
-import main.java.kite.pageObjects.AddEnterpriseElements;
+import main.java.kite.pageObjects.AddEnterprisePageElements;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import static test.java.BaseTest.driver;
 import static test.java.BaseTest.logger;
 
-public class AddEnterpriseEvents extends AddEnterpriseElements {
+public class AddEnterprisePageEvents extends AddEnterprisePageElements {
     WebDriver ldriver;
-    public AddEnterpriseEvents(WebDriver rdriver)
+    public AddEnterprisePageEvents(WebDriver rdriver)
     {
         ldriver=rdriver;
         PageFactory.initElements(rdriver,this);
