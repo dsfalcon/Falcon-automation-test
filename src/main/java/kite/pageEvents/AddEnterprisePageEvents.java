@@ -1,6 +1,7 @@
 package main.java.kite.pageEvents;
 
 import main.java.kite.pageObjects.AddEnterprisePageElements;
+import main.java.utils.XLUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -19,6 +20,14 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         /* ****************Basic Information****************/
 
         logger.info("Page Title is " + driver.getTitle());
+        /*
+        * Randam string name gen
+        * name get
+        * set excel
+        *
+        * */
+
+
         companyCode.sendKeys("gouravqa13");
         enterpriseName.sendKeys("gouravqa13");
         displayName.sendKeys("gouravqa13");
