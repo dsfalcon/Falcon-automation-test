@@ -47,13 +47,13 @@ public class AddEnterprisePageElements {
     @CacheLookup
     public WebElement issuerButton;
 
-    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[12]/td[3]/input")
+    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[13]/td[3]/input")
     @CacheLookup
     public WebElement authTokenEmailID;
 
     /* ********************************** Tax Related Details ****************************************** */
 
-    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[26]/td[3]/input")
+    @FindBy(id = "panNumber")
     @CacheLookup
     public WebElement panNumber;
 
@@ -61,15 +61,15 @@ public class AddEnterprisePageElements {
 
     /* ********************************** Contact Details ****************************************** */
 
-    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[30]/td[3]/input")
+    @FindBy(id = "contactPerson")
     @CacheLookup
     public WebElement contactPersonName;
 
-    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[31]/td[3]/input")
+    @FindBy(id = "contactPersonNumber")
     @CacheLookup
     public WebElement contactPersonNumber;
 
-    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[41]/td[1]/button[1]")
+    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[45]/td[1]/button[1]")
     @CacheLookup
     public WebElement submitButton;
 

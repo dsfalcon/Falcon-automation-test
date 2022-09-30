@@ -3,9 +3,6 @@ package test.java.kite;
 import main.java.kite.pageEvents.FinLoginPageEvents;
 import main.java.kite.pageEvents.FinSideBarEvents;
 import main.java.kite.pageEvents.ViewTransferPageEvents;
-import main.java.utils.XLUtils;
-import main.java.utils.XLutils2;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.java.BaseTest;
 

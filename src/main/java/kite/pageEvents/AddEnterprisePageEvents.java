@@ -1,9 +1,13 @@
 package main.java.kite.pageEvents;
 
 import main.java.kite.pageObjects.AddEnterprisePageElements;
+import main.java.utils.RandomString;
 import main.java.utils.XLUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import java.io.IOException;
+import java.util.Random;
 
 import static test.java.BaseTest.driver;
 import static test.java.BaseTest.logger;
@@ -16,7 +20,7 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         PageFactory.initElements(rdriver,this);
     }
 
-    public  void addEnterprise () throws InterruptedException {
+    public  void addEnterprise () throws InterruptedException, IOException {
         /* ****************Basic Information****************/
 
         logger.info("Page Title is " + driver.getTitle());
@@ -26,11 +30,15 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         * set excel
         *
         * */
+        String randomString = RandomString.getAlphaNumericString(5);
+        String lowerString = randomString.toLowerCase();
+        String path=System.getProperty("user.dir")+"/datafiles/"+"addEnterprise.xlsx";
+        XLUtils.setCellData(path,"Sheet1",0,0,lowerString);
 
 
-        companyCode.sendKeys("gouravqa13");
-        enterpriseName.sendKeys("gouravqa13");
-        displayName.sendKeys("gouravqa13");
+        companyCode.sendKeys(lowerString);
+        enterpriseName.sendKeys(lowerString);
+        displayName.sendKeys(lowerString);
         programPrepaidButton.click();
         planGprCardard.click();
         planGiftCard.click();
@@ -38,16 +46,17 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         loadMoneyYesButton.click();
         impsPayOutYesButton.click();
         issuerButton.click();
-        authTokenEmailID.sendKeys("gouravqa13@mailinator.com");
+        String authTokenEmailIDText = lowerString+"@mailinator.com";
+        authTokenEmailID.sendKeys(authTokenEmailIDText);
 
         /* *******************Tax Related Details******************** */
 
-        panNumber.sendKeys("HXRPS8814U");
+       // panNumber.sendKeys("GOUPV"+RandomString.generateNumber(4)+"G");
 
         /* *******************Contact Details******************** */
 
         contactPersonName.sendKeys("Rohit suri");
-        contactPersonNumber.sendKeys("9009009015");
+        contactPersonNumber.sendKeys("90"+RandomString.generateNumber());
 
         submitButton.click();
         Thread.sleep(3000);
@@ -57,7 +66,7 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
 
         logger.info(BoxText);
         Thread.sleep(3000);
-        confirmButton.click();
+        //confirmButton.click();
         Thread.sleep(7000);
     }
 }
