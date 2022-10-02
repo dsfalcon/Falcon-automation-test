@@ -122,6 +122,12 @@
             <artifactId>owner</artifactId>
             <version>1.0.12</version>
         </dependency>
+        <!-- To Generate Fake DATA  -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
     </dependencies>
 
 

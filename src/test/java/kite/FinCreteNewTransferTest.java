@@ -21,8 +21,8 @@ public class FinCreteNewTransferTest extends BaseTest {
         FinSideBarEvents finSideBarEvents = new FinSideBarEvents(driver);
         finSideBarEvents.goToNewTransfer();
 
-        CreateNewTransferPageEvents createNewTransferPageEvents = new CreateNewTransferPageEvents(driver);
-        createNewTransferPageEvents.newTransfer();
+        FinCreateNewTransferPageEvents finCreateNewTransferPageEvents = new FinCreateNewTransferPageEvents(driver);
+        finCreateNewTransferPageEvents.newTransfer();
 
         //logger.addScreenCaptureFromPath("../screenshots/FinCreteNewTransferMethod.png");
 

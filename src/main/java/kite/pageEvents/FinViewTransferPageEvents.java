@@ -9,10 +9,10 @@ import java.io.IOException;
 
 import static test.java.BaseTest.logger;
 
-public class ViewTransferPageEvents extends ViewTransferElements {
+public class FinViewTransferPageEvents extends ViewTransferElements {
 
     WebDriver ldriver;
-    public ViewTransferPageEvents (WebDriver rdriver)
+    public FinViewTransferPageEvents(WebDriver rdriver)
     {
         ldriver=rdriver;
         PageFactory.initElements(rdriver,this);
@@ -43,8 +43,6 @@ public class ViewTransferPageEvents extends ViewTransferElements {
         }catch (Exception e){
             logger.info("Got some Exception: "+e);
         }
-
-
 
     }
 

@@ -10,6 +10,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.JsonFormatter;
 import com.aventstack.extentreports.reporter.configuration.Protocol;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import main.java.kite.pageEvents.LoginPageEvents;
 import main.java.utils.FrameworkConfig;
@@ -32,6 +33,7 @@ public class BaseTest {
     public ExtentSparkReporter sparkReporter;
     public static ExtentReports extent;
     public static ExtentTest logger;
+    public static Faker faker = new Faker();
 
     public static ExtentReports addScreenCaptureFromPath;
     FrameworkConfig config = ConfigFactory.create(FrameworkConfig.class);

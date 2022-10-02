@@ -2,7 +2,7 @@ package test.java.kite;
 
 import main.java.kite.pageEvents.FinLoginPageEvents;
 import main.java.kite.pageEvents.FinSideBarEvents;
-import main.java.kite.pageEvents.ViewTransferPageEvents;
+import main.java.kite.pageEvents.FinViewTransferPageEvents;
 import org.testng.annotations.Test;
 import test.java.BaseTest;
 
@@ -18,8 +18,8 @@ public class FinViewTransferTest extends BaseTest {
         FinSideBarEvents finSideBarEvents = new FinSideBarEvents(driver);
         finSideBarEvents.goToViewTransfer();
 
-        ViewTransferPageEvents viewTransferPageEvents = new ViewTransferPageEvents(driver);
-        viewTransferPageEvents.approveTransfer();
+        FinViewTransferPageEvents finViewTransferPageEvents = new FinViewTransferPageEvents(driver);
+        finViewTransferPageEvents.approveTransfer();
 
         Thread.sleep(5000);
     }

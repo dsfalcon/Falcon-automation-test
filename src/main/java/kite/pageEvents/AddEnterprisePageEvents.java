@@ -1,5 +1,6 @@
 package main.java.kite.pageEvents;
 
+import com.github.javafaker.Faker;
 import main.java.kite.pageObjects.AddEnterprisePageElements;
 import main.java.utils.RandomString;
 import main.java.utils.XLUtils;
@@ -9,8 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.io.IOException;
 import java.util.Random;
 
-import static test.java.BaseTest.driver;
-import static test.java.BaseTest.logger;
+import static test.java.BaseTest.*;
 
 public class AddEnterprisePageEvents extends AddEnterprisePageElements {
     WebDriver ldriver;
@@ -30,10 +30,10 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         * set excel
         *
         * */
-        String randomString = RandomString.getAlphaNumericString(5);
-        String lowerString = randomString.toLowerCase();
+        String companyName = faker.address().firstName();
+        String lowerString = companyName.toLowerCase();
         String path=System.getProperty("user.dir")+"/datafiles/"+"addEnterprise.xlsx";
-        XLUtils.setCellData(path,"Sheet1",0,0,lowerString);
+        XLUtils.setCellData(path,"Sheet1",1,0,lowerString);
 
 
         companyCode.sendKeys(lowerString);
@@ -48,15 +48,24 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         issuerButton.click();
         String authTokenEmailIDText = lowerString+"@mailinator.com";
         authTokenEmailID.sendKeys(authTokenEmailIDText);
+        XLUtils.setCellData(path,"Sheet1",1,1,authTokenEmailIDText);
 
         /* *******************Tax Related Details******************** */
 
-       // panNumber.sendKeys("GOUPV"+RandomString.generateNumber(4)+"G");
+        String pan = "GORAV"+RandomString.generateNumber(4)+"G";
+        panNumber.sendKeys(pan);
+        XLUtils.setCellData(path,"Sheet1",1,2,pan);
 
         /* *******************Contact Details******************** */
 
-        contactPersonName.sendKeys("Rohit suri");
-        contactPersonNumber.sendKeys("90"+RandomString.generateNumber());
+
+        String name = faker.name().fullName();
+        contactPersonName.sendKeys(name);
+        XLUtils.setCellData(path,"Sheet1",1,3,name);
+
+        String number = "9009"+RandomString.generateNumber(6);
+        contactPersonNumber.sendKeys(number);
+        XLUtils.setCellData(path,"Sheet1",1,4,number);
 
         submitButton.click();
         Thread.sleep(3000);

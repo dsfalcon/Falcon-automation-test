@@ -6,10 +6,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import static test.java.BaseTest.logger;
 
-public class CreateNewTransferPageEvents extends CreateNewTransferPageElements {
+public class FinCreateNewTransferPageEvents extends CreateNewTransferPageElements {
 
     WebDriver ldriver;
-    public CreateNewTransferPageEvents  (WebDriver rdriver)
+    public FinCreateNewTransferPageEvents(WebDriver rdriver)
     {
         ldriver=rdriver;
         PageFactory.initElements(rdriver,this);
@@ -25,7 +25,7 @@ public class CreateNewTransferPageEvents extends CreateNewTransferPageElements {
         GPR.click();
         yesBank.click();
         enterPrisePoolAccount.click();
-        transactionDate.sendKeys("28/09/2022");
+        transactionDate.sendKeys();
         transactionAmount.sendKeys("50");
         UTRnumber.sendKeys("50000Gourav99999");
         MMTicketNumber.sendKeys("50000Goura");

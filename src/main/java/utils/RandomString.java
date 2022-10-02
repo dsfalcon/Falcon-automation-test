@@ -6,10 +6,6 @@ import java.util.Random;
 
 public class RandomString {
 
-    public static void main(String[] args) {
-        RandomString randomString =new RandomString();
-        randomString.getNumber(2);
-    }
 
     // function to generate a random string of length n
     public static String getAlphaNumericString(int n) {
@@ -38,24 +34,46 @@ public class RandomString {
         return sb.toString();
     }
 
-    public static int generateNumber() {
+    public static int generateNumber(int size) {
         Random rand = new Random();
-        int rand_int1 = rand.nextInt(100000000);
+        int limit = 1;
+        for (int i=0; i<size; i++ ) {
+            limit = limit * 10;
+        }
+        int rand_int1 = rand.nextInt(limit);
         System.out.println("Random Integers: " + rand_int1);
         return rand_int1;
     }
 
-    public void getNumber(int x)
-    {
-        //Random rand = new Random();
-        int p = 1;
-        for (int i=0; i<x; i++ ){
-            p = p*10;
 
+
+
+    public static String getAlphaString(int n) {
+
+        // chose a Character random from this String
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                + "abcdefghijklmnopqrstuvxyz";
+
+        // create StringBuffer size of AlphaNumericString
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index
+                    = (int) (AlphaNumericString.length()
+                    * Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString
+                    .charAt(index));
         }
-        System.out.println("Total::::"+ p);
 
+        return sb.toString();
     }
+
+
 
 
 
