@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class CreateAdminTest extends BaseTest {
 
-    @Test(dataProvider = "enterpriseData")
+    @Test(dataProvider = "companyData")
     public void CreateAdminMethod(String cmpnyName,String email, String pan, String contactP, String contactPNumbr) throws IOException, InterruptedException {
         super.LoginMethod();
         Thread.sleep(5000);
@@ -25,25 +25,27 @@ public class CreateAdminTest extends BaseTest {
         CreateAdminPageEvents createAdminEvents =new CreateAdminPageEvents(driver);
         createAdminEvents.createAdmin(cmpnyName);
         logger.addScreenCaptureFromPath("../screenshots/CreateAdminMethod.png");
+        //addEnterprise.xlsx
     }
 
 
-    @DataProvider(name="enterpriseData")
+    @DataProvider(name="companyData")
     Object[][] getData() throws IOException {
         String path=System.getProperty("user.dir")+"/datafiles/"+"addEnterprise.xlsx";
-        logger.info(path);
+//        logger.info(path);
         int rownum= XLUtils.getRowCount(path, "Sheet1");
         int colcount= XLUtils.getCellCount(path, "Sheet1", 1);
 
-        String[][] epdata =new String[rownum][colcount];
+        String[][] logindata =new String[rownum][colcount];
 
         for(int i=1; i<=rownum; i++){
             for(int j=0;j<colcount;j++){
-                epdata[i-1][j]= XLUtils.getCellData(path,"Sheet1",i,j);
+                logindata[i-1][j]= XLUtils.getCellData(path,"Sheet1",i,j);
             }
         }
-        logger.info(String.valueOf(epdata));
-        return epdata;
+//        logger.info(String.valueOf(logindata));
+
+        return logindata;
     }
 
 }

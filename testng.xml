@@ -12,7 +12,7 @@
 <!--            <class name="test.java.kite.AddEnterpriseTest"/>-->
             <class name="test.java.kite.CreateAdminTest"/>
 
-<!--            <class name="test.java.kite.FinCreteNewTransferTest"></class>-->
+            <class name="test.java.kite.FinCreteNewTransferTest"></class>
 <!--            <class name="test.java.kite.FinViewTransferTest"></class>-->
         </classes>
     </test>

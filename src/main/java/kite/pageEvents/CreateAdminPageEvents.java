@@ -24,11 +24,16 @@ public class CreateAdminPageEvents extends CreateAdminPageElements {
 
        String firstName =  faker.address().firstName();
        String lastName = faker.address().lastName();
-       String emailID =  RandomString.getAlphaNumericString(5)+"mailinator.com";
-       String mobNumber = "98260"+RandomString.generateNumber(5);
+       String emailID =  RandomString.getAlphaNumericString(5)+"@mailinator.com";
+       String mobNumber = "98260"+RandomString.generateNumber(6);
 
         String path=System.getProperty("user.dir")+"/datafiles/"+"addEnterprise.xlsx";
-        XLUtils.setCellData(path,"Sheet2",1,0,firstName);
+        try {
+            XLUtils.setCellData(path,"Sheet2",1,0,firstName);
+        }catch (Exception e){
+            logger.info(e);
+        }
+
         XLUtils.setCellData(path,"Sheet2",1,1,lastName);
         XLUtils.setCellData(path,"Sheet2",1,2,emailID);
         XLUtils.setCellData(path,"Sheet2",1,3,mobNumber);
