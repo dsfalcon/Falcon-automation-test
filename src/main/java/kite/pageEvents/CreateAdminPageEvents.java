@@ -53,7 +53,7 @@ public class CreateAdminPageEvents extends CreateAdminPageElements {
         lstName.sendKeys(lastName);
         email.sendKeys(emailID);
         moNumber.sendKeys(mobNumber);
-    //    submitButton.click();
+        submitButton.click();
 
     }
 }

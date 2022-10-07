@@ -75,7 +75,7 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
 
         logger.info(BoxText);
         Thread.sleep(3000);
-        //confirmButton.click();
+        confirmButton.click();
         Thread.sleep(7000);
     }
 }

@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class FinCreteNewTransferTest extends BaseTest {
 
     @Test(dataProvider = "finData")
-    public void FinCreteNewTransferMethod() throws InterruptedException, IOException {
+    public void FinCreteNewTransferMethod(String cmpnyName,String email, String pan, String contactP, String contactPNumbr) throws InterruptedException, IOException {
         Thread.sleep(5000);
         driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 
@@ -24,9 +24,9 @@ public class FinCreteNewTransferTest extends BaseTest {
         finSideBarEvents.goToNewTransfer();
 
         FinCreateNewTransferPageEvents finCreateNewTransferPageEvents = new FinCreateNewTransferPageEvents(driver);
-        finCreateNewTransferPageEvents.newTransfer();
+        finCreateNewTransferPageEvents.newTransfer(cmpnyName);
 
-        //logger.addScreenCaptureFromPath("../screenshots/FinCreteNewTransferMethod.png");
+ //       logger.addScreenCaptureFromPath("../screenshots/FinCreteNewTransferMethod.png");
 
         Thread.sleep(5000);
         /* ****************** Page Code ****************** */
@@ -49,7 +49,7 @@ public class FinCreteNewTransferTest extends BaseTest {
                 logindata[i-1][j]= XLUtils.getCellData(path,"Sheet1",i,j);
             }
         }
-//        logger.info(String.valueOf(logindata));
+    // logger.info(String.valueOf(logindata));
 
         return logindata;
     }
