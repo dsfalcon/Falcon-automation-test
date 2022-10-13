@@ -59,6 +59,23 @@ public class CreateNewTransferPageElements {
     public WebElement transactionMsg;
 
 
+ @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-create-transfer/form/table/tbody/tr[5]/td[5]")
+    @CacheLookup
+    public WebElement TRerrorMsg;
+
+@FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-create-transfer/form/table/tbody/tr[6]/td[5]")
+    @CacheLookup
+    public WebElement AmounterrorMsg;
+
+@FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-create-transfer/form/table/tbody/tr[7]/td[5]")
+    @CacheLookup
+    public WebElement UTRerrorMsg;
+
+@FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-create-transfer/form/table/tbody/tr[8]/td[5]")
+    @CacheLookup
+    public WebElement MMerrorMsg;
+
+
 
 
 }

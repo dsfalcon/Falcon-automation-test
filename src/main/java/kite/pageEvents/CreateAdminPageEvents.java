@@ -25,7 +25,7 @@ public class CreateAdminPageEvents extends CreateAdminPageElements {
        String firstName =  faker.address().firstName();
        String lastName = faker.address().lastName();
        String emailID =  RandomString.getAlphaNumericString(5)+"@mailinator.com";
-       String mobNumber = "98260"+RandomString.generateNumber(6);
+       String mobNumber = "98260"+RandomString.generateNumber(5);
 
         String path=System.getProperty("user.dir")+"/datafiles/"+"addEnterprise.xlsx";
         try {
@@ -54,6 +54,7 @@ public class CreateAdminPageEvents extends CreateAdminPageElements {
         email.sendKeys(emailID);
         moNumber.sendKeys(mobNumber);
         submitButton.click();
+        Thread.sleep(5000);
 
     }
 }

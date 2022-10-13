@@ -20,6 +20,7 @@ public class FinSideBarEvents extends FinSidebarElements {
     }
     public void goToViewTransfer() throws InterruptedException {
         enterpriseTransfer.click();
+        Thread.sleep(2000);
         viewTransfer.click();
         Thread.sleep(2000);
 
