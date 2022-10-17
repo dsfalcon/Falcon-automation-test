@@ -21,6 +21,7 @@ public class LoginPageElements {
     WebElement nxtButton;
     /* *************************** Error Message ****************************** */
     @FindBy(xpath = "/html/body/app-root/div/app-pre-auth/app-company/div/form/div[1]/div/div")
+
     @CacheLookup
     public WebElement loginPageErrorMsg;
 

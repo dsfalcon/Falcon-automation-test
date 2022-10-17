@@ -5,6 +5,7 @@ import main.java.kite.pageObjects.AddEnterprisePageElements;
 import main.java.utils.RandomString;
 import main.java.utils.XLUtils;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
@@ -20,7 +21,37 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         PageFactory.initElements(rdriver,this);
     }
 
-    public  void addEnterprise () throws InterruptedException, IOException {
+    public  void addEnterprise (String CompanyCode,
+                                String EnterpriseName,
+                                String DisplayName,
+                                String Program,
+                                String ExpensePlan,
+                                String PrepaidPlan,
+                                String FundingSource,
+                                String AllowMoney,
+                                String IMPSPayout,
+                                String UPIPPI,
+                                String Issuer,
+                                String AuthTokenEmailID,
+                                String PartnerKey,
+                                String IssureCode,
+                                String IssuerSecret,
+                                String PSK,
+                                String NatureOfBusiness,
+                                String DateOfIncorporation,
+                                String CompanyURL,
+                                String TAN,
+                                String PAN,
+                                String GSTIN,
+                                String ContactPersonName,
+                                String ContactPersonPhoneNumber,
+                                String AlternatePhoneNumber,
+                                String Email_ID,
+                                String Address_1,
+                                String Address_2,
+                                String City,
+                                String State,
+                                String ZipCode) throws InterruptedException, IOException {
         /* ****************Basic Information****************/
 
         logger.info("Page Title is " + driver.getTitle());
@@ -30,15 +61,15 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         * set excel
         *
         * */
-        String companyName = faker.address().firstName();
+    /*    String companyName = faker.address().firstName();
         String lowerString = companyName.toLowerCase();
         String path=System.getProperty("user.dir")+"/datafiles/"+"addEnterprise.xlsx";
         XLUtils.setCellData(path,"Sheet1",1,0,lowerString);
+*/
 
-
-        companyCode.sendKeys(lowerString);
-        enterpriseName.sendKeys(lowerString);
-        displayName.sendKeys(lowerString);
+        companyCode.sendKeys(CompanyCode);
+        enterpriseName.sendKeys(EnterpriseName);
+        displayName.sendKeys(DisplayName);
         programPrepaidButton.click();
         planGprCardard.click();
         planGiftCard.click();
@@ -46,36 +77,87 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         loadMoneyYesButton.click();
         impsPayOutYesButton.click();
         issuerButton.click();
-        String authTokenEmailIDText = lowerString+"@mailinator.com";
+        String authTokenEmailIDText = DisplayName;
         authTokenEmailID.sendKeys(authTokenEmailIDText);
-        XLUtils.setCellData(path,"Sheet1",1,1,authTokenEmailIDText);
+    //    XLUtils.setCellData(path,"Sheet1",1,1,authTokenEmailIDText);
 
         /* *******************Tax Related Details******************** */
 
-        String pan = "GORAV"+RandomString.generateNumber(4)+"G";
-        panNumber.sendKeys(pan);
-        XLUtils.setCellData(path,"Sheet1",1,2,pan);
+       // String pan = "GORAV"+RandomString.generateNumber(4)+"G";
+        panNumber.sendKeys(PAN);
+      //  XLUtils.setCellData(path,"Sheet1",1,2,pan);
 
         /* *******************Contact Details******************** */
 
 
-        String name = faker.name().fullName();
-        contactPersonName.sendKeys(name);
-        XLUtils.setCellData(path,"Sheet1",1,3,name);
+      //  String name = faker.name().fullName();
+        contactPersonName.sendKeys(ContactPersonName);
+      //  XLUtils.setCellData(path,"Sheet1",1,3,name);
 
-        String number = "9009"+RandomString.generateNumber(6);
-        contactPersonNumber.sendKeys(number);
-        XLUtils.setCellData(path,"Sheet1",1,4,number);
+       // String number = "9009"+RandomString.generateNumber(6);
+        contactPersonNumber.sendKeys(ContactPersonPhoneNumber);
+     //   XLUtils.setCellData(path,"Sheet1",1,4,number);
+        clickOutSideToGetError.click();
+        try {
 
-        submitButton.click();
+            submitButton.click();
+        }
+        catch (Exception e){
+            logger.info("Got Some Exception for Enterprise Page ::::: "+e.getMessage());
+        }
+
+
         Thread.sleep(3000);
+        /* To Allow the Creation of the company */
+
         String BoxText = accessPopUp.getText();
-
-        //String alertMessage= driver.switchTo().alert().getText(); // capture alert message
-
+        String alertMessage= driver.switchTo().alert().getText(); // capture alert message
         logger.info(BoxText);
         Thread.sleep(3000);
-        confirmButton.click();
+
+        try {
+            confirmButton.click();
+            checkErr(companyCodeError);
+            checkErr(enterpriseError);
+            checkErr(displayNameError);
+            checkErr(contactPersonNameError);
+            checkErr(contactPersonPhoneNumberError);
+            checkErr(alternatePhoneNumberError);
+            checkErr(zipCodeError);
+            checkErr(programSelectionError);
+        }
+        catch (Exception e){
+            logger.info("Got Some Exception on  Enterprise Approval Form::::: "+e.getMessage());
+        }
         Thread.sleep(7000);
     }
+
+
+    public void checkErr(WebElement err) {
+        try {
+            Thread.sleep(2000);
+            String errMsg = err.getText();
+            // logger.info(errMsg);
+            Thread.sleep(2000);
+            if (errMsg == null){
+
+                logger.info("error");
+
+                System.out.println("");
+            }
+            else {
+
+                logger.info("error" +errMsg);
+
+                logger.info("Error Found on page::::::::::::" + errMsg);
+            }
+
+
+        } catch (Exception e) {
+            logger.info("No Error Found on page for Transaction Amount:::::::::" + e.getMessage());
+
+        }
+
+    }
+
 }

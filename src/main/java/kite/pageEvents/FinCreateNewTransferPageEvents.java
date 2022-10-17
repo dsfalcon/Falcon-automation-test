@@ -46,7 +46,6 @@ public class FinCreateNewTransferPageEvents extends CreateNewTransferPageElement
         Thread.sleep(4000);
         /* ****************************** Check for error messages ****************************** */
 
-
         try {
             checkErr(TRerrorMsg);
             checkErr(AmounterrorMsg);
@@ -55,7 +54,7 @@ public class FinCreateNewTransferPageEvents extends CreateNewTransferPageElement
             String Msg = transactionMsg.getText();
             logger.info(Msg);
         } catch (Exception e) {
-            logger.info("Got some Exception: " + e);
+            logger.info("Got some Exception: " + e.getMessage());
         }
 
     }
@@ -72,7 +71,6 @@ public class FinCreateNewTransferPageEvents extends CreateNewTransferPageElement
             else {
                 logger.info("Error Found on page::::::::::::" + errMsg);
             }
-
 
         } catch (Exception e) {
             logger.info("No Error Found on page for Transaction Amount:::::::::" + e.getMessage());

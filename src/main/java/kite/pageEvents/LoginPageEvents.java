@@ -5,6 +5,7 @@ import main.java.kite.pageObjects.LoginPageElements;
 import main.java.utils.FrameworkConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.IReporter;
 
@@ -20,7 +21,6 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
     public void getTitleCompany() throws InterruptedException {
         logger.info("Page Events Se " + driver.getTitle());
         Thread.sleep(2000);
-
     }
 
     WebDriver ldriver;
@@ -30,13 +30,6 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
         PageFactory.initElements(rdriver,this);
     }
 
-   /* public void validateLogin() throws InterruptedException {
-
-        LoginPageEvents loginPage = PageFactory.initElements(driver, LoginPageEvents.class);
-        loginPage.loginMethod("superadmin@kite.work", "Kite@135#");
-        logger.info("validateLogin is Working");
-    }*/
-
     public void loginMethod () throws InterruptedException {
 
         username.sendKeys(config.email());
@@ -44,15 +37,33 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
         Thread.sleep(3000);
         loginButton.click();
         Thread.sleep(2000);
-        //errMsgOnPage.getText();
-        String errMsg = " Your email or password is incorrect. Please try again!";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-
+        try {
+            checkErr(errMsgOnPage);
+            String Msg = errMsgOnPage.getText();
+            logger.info(Msg);
+        } catch (Exception e) {
+            logger.info("Got some Exception Because of No error driver was not able to find the element :: " + e.getMessage());
+        }
     }
 
-
-
+    public void checkErr(WebElement err) {
+        try {
+            Thread.sleep(2000);
+            String errMsg = err.getText();
+            // logger.info(errMsg);
+            Thread.sleep(2000);
+            if (errMsg == null){
+                System.out.println("");
+            }
+            else {
+                logger.info("Error Found on page :::::::::::: " + errMsg);
+            }
+        } catch (Exception e) {
+            logger.info("Exception Found on page ::::::::: " + e.getMessage());
+        }
+    }
 }
 
 
