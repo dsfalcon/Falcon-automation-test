@@ -4,11 +4,13 @@ import com.github.javafaker.Faker;
 import main.java.kite.pageObjects.AddEnterprisePageElements;
 import main.java.utils.RandomString;
 import main.java.utils.XLUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 
 import static test.java.BaseTest.*;
@@ -98,63 +100,79 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         contactPersonNumber.sendKeys(ContactPersonPhoneNumber);
      //   XLUtils.setCellData(path,"Sheet1",1,4,number);
         clickOutSideToGetError.click();
+
+        /*Now Check For error*/
+        try {
+
+//            checkErr(companyCodeError);
+//            checkErr(enterpriseError);
+//            checkErr(displayNameError);
+//            checkErr(contactPersonNameError);
+//            checkErr(contactPersonPhoneNumberError);
+//            checkErr(alternatePhoneNumberError);
+//            checkErr(zipCodeError);
+//            checkErr(authTokenEmailIDError);
+//            checkErr(companyURLError);
+//            checkErr(tanError);
+//            checkErr(panError);
+//            checkErr(gstinError);
+//            checkErr(getContactPersonEmailError);
+
+           List<WebElement> errList = driver.findElements(By.className("errorMessage"));
+            for(int i =0;i<errList.size();i++) {
+                String elementText = errList.get(i).getText();
+                System.out.println(elementText);
+                logger.info(elementText);
+            }
+         //  logger.info("Error List ::: "+errList);
+            confirmButton.click();
+        }
+        catch (Exception e){
+            logger.info("Got Some Exception While Checking the errors on the Form::::: "+e.getMessage());
+        }
+
         try {
 
             submitButton.click();
+       //     Thread.sleep(3000);
+            /* To Allow the Creation of the company */
+            String BoxText = accessPopUp.getText();
+            String alertMessage= driver.switchTo().alert().getText(); // capture alert message
+            logger.info(BoxText);
+           // Thread.sleep(3000);
         }
         catch (Exception e){
             logger.info("Got Some Exception for Enterprise Page ::::: "+e.getMessage());
         }
 
 
-        Thread.sleep(3000);
-        /* To Allow the Creation of the company */
-
-        String BoxText = accessPopUp.getText();
-        String alertMessage= driver.switchTo().alert().getText(); // capture alert message
-        logger.info(BoxText);
-        Thread.sleep(3000);
-
-        try {
-            confirmButton.click();
-            checkErr(companyCodeError);
-            checkErr(enterpriseError);
-            checkErr(displayNameError);
-            checkErr(contactPersonNameError);
-            checkErr(contactPersonPhoneNumberError);
-            checkErr(alternatePhoneNumberError);
-            checkErr(zipCodeError);
-            checkErr(programSelectionError);
-        }
-        catch (Exception e){
-            logger.info("Got Some Exception on  Enterprise Approval Form::::: "+e.getMessage());
-        }
-        Thread.sleep(7000);
+       // Thread.sleep(7000);
     }
 
 
     public void checkErr(WebElement err) {
         try {
-            Thread.sleep(2000);
+          //  Thread.sleep(2000);
             String errMsg = err.getText();
             // logger.info(errMsg);
-            Thread.sleep(2000);
+         //   Thread.sleep(2000);
             if (errMsg == null){
 
-                logger.info("error");
+                logger.info("error Not Found");
 
                 System.out.println("");
             }
             else {
+                logger.info("TEst::" + (err.getText()));
 
-                logger.info("error" +errMsg);
+               // logger.info("error" +errMsg);
 
-                logger.info("Error Found on page::::::::::::" + errMsg);
+               // logger.info("Error Found on page::::::::::::" + errMsg);
             }
 
 
         } catch (Exception e) {
-            logger.info("No Error Found on page for Transaction Amount:::::::::" + e.getMessage());
+           // logger.info("No Error Found on page for Transaction Amount:::::::::" + e.getMessage());
 
         }
 

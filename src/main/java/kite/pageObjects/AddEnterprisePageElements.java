@@ -121,6 +121,33 @@ public class AddEnterprisePageElements {
     @CacheLookup
     public WebElement programSelectionError;
 
+    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[13]/td[5]")
+    @CacheLookup
+    public WebElement authTokenEmailIDError;
+
+  @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[26]/td[5]")
+    @CacheLookup
+    public WebElement companyURLError;
+
+  @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[29]/td[5]")
+    @CacheLookup
+    public WebElement tanError;
+
+  @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[30]/td[5]")
+    @CacheLookup
+    public WebElement panError;
+
+  @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[31]/td[5]")
+    @CacheLookup
+    public WebElement gstinError;
+
+ @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[37]/td[5]")
+    @CacheLookup
+    public WebElement getContactPersonEmailError;
+
+
+
+
 
 
 
