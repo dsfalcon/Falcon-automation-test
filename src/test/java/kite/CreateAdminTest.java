@@ -25,7 +25,7 @@ public class CreateAdminTest extends BaseTest {
         CreateAdminPageEvents createAdminEvents =new CreateAdminPageEvents(driver);
         createAdminEvents.createAdmin(companyName);
         logger.addScreenCaptureFromPath("../screenshots/CreateAdminMethod.png");
-        //addEnterprise.xlsx
+
     }
 
 
