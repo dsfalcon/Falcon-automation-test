@@ -13,7 +13,7 @@ import java.io.IOException;
 public class CreateAdminTest extends BaseTest {
 
     @Test(dataProvider = "companyData")
-    public void CreateAdminMethod(String cmpnyName,String email, String pan, String contactP, String contactPNumbr) throws IOException, InterruptedException {
+    public void CreateAdminMethod(String companyName,String email, String pan, String contactP, String contactPNumbr) throws IOException, InterruptedException {
         super.LoginMethod();
         Thread.sleep(5000);
 
@@ -23,7 +23,7 @@ public class CreateAdminTest extends BaseTest {
         Thread.sleep(3000);
 
         CreateAdminPageEvents createAdminEvents =new CreateAdminPageEvents(driver);
-        createAdminEvents.createAdmin(cmpnyName);
+        createAdminEvents.createAdmin(companyName);
         logger.addScreenCaptureFromPath("../screenshots/CreateAdminMethod.png");
         //addEnterprise.xlsx
     }

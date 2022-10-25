@@ -19,7 +19,7 @@ public class CreateAdminPageEvents extends CreateAdminPageElements {
         PageFactory.initElements(rdriver,this);
     }
 
-    public void createAdmin(String cmpnyName) throws InterruptedException, IOException {
+    public void createAdmin(String companyName) throws InterruptedException, IOException {
         /* **************** Create Admin Information****************/
 
        String firstName =  faker.address().firstName();
@@ -43,7 +43,7 @@ public class CreateAdminPageEvents extends CreateAdminPageElements {
         logger.info("Current Page URL "+ driver.getCurrentUrl());
         clickToSlctEP.click();
         Thread.sleep(3000);
-        EnterEpName.sendKeys(cmpnyName);
+        EnterEpName.sendKeys(companyName);
         Thread.sleep(3000);
         slctEP.click();
         Thread.sleep(3000);
