@@ -12,7 +12,7 @@ public class CompanyAccountStatementTest extends  LoginTest{
 
     @Test(dataProvider = "endUserData")
     public void CompanyAccountStatementPageMethod(String exDay, String exMonth, String exYear,String exDay2, String exMonth2, String exYear2) throws InterruptedException, IOException {
-        super.LoginMethodDart();
+
         /*Add new user to portal */
         SideBarEvents sideBarEvents = new SideBarEvents(driver);
         sideBarEvents.goToCompanyAccountStatement();

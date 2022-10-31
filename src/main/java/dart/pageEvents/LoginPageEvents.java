@@ -5,7 +5,6 @@ import main.java.dart.pageObjects.LoginPageElements;
 import main.java.utils.FrameworkConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -36,12 +35,12 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
     }
 
 
-    public void loginMethod() throws InterruptedException {
+    public void loginMethod(String companyCode) throws InterruptedException {
         try {
 
 
 //        Thread.sleep(3000);
-        enterpriseId.sendKeys(config.enterpriseId());
+        enterpriseId.sendKeys(companyCode);
         nxtButton.click();
         Thread.sleep(2000);
         String err1 = "Enterprise not authorised. ";

@@ -79,8 +79,8 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         loadMoneyYesButton.click();
         impsPayOutYesButton.click();
         issuerButton.click();
-        String authTokenEmailIDText = DisplayName;
-        authTokenEmailID.sendKeys(authTokenEmailIDText);
+
+        authTokenEmailID.sendKeys(Email_ID);
     //    XLUtils.setCellData(path,"Sheet1",1,1,authTokenEmailIDText);
 
         /* *******************Tax Related Details******************** */

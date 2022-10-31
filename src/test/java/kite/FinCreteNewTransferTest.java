@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class FinCreteNewTransferTest extends BaseTest {
 
     @Test(dataProvider = "finData")
-    public void FinCreteNewTransferMethod(String cmpnyName,String email, String pan, String contactP, String contactPNumbr) throws InterruptedException, IOException {
+    public void FinCreteNewTransferMethod(String CompanyCode) throws InterruptedException, IOException {
         Thread.sleep(5000);
         driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 
@@ -24,7 +24,7 @@ public class FinCreteNewTransferTest extends BaseTest {
         finSideBarEvents.goToNewTransfer();
 
         FinCreateNewTransferPageEvents finCreateNewTransferPageEvents = new FinCreateNewTransferPageEvents(driver);
-        finCreateNewTransferPageEvents.newTransfer(cmpnyName);
+        finCreateNewTransferPageEvents.newTransfer(CompanyCode);
 
  //       logger.addScreenCaptureFromPath("../screenshots/FinCreteNewTransferMethod.png");
 
@@ -37,16 +37,16 @@ public class FinCreteNewTransferTest extends BaseTest {
 
     @DataProvider(name="finData")
     Object[][] getData() throws IOException {
-        String path=System.getProperty("user.dir")+"/datafiles/"+"addEnterprise.xlsx";
+        String path=System.getProperty("user.dir")+"/datafiles/"+"kiteDDT.xlsx";
 //        logger.info(path);
-        int rownum= XLUtils.getRowCount(path, "Sheet1");
-        int colcount= XLUtils.getCellCount(path, "Sheet1", 1);
+        int rownum= XLUtils.getRowCount(path, "AddEnterprise");
+        int colcount= XLUtils.getCellCount(path, "AddEnterprise", 1);
 
         String[][] logindata =new String[rownum][colcount];
 
         for(int i=1; i<=rownum; i++){
             for(int j=0;j<colcount;j++){
-                logindata[i-1][j]= XLUtils.getCellData(path,"Sheet1",i,j);
+                logindata[i-1][j]= XLUtils.getCellData(path,"AddEnterprise",i,j);
             }
         }
     // logger.info(String.valueOf(logindata));

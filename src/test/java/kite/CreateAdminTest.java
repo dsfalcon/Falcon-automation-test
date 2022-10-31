@@ -13,7 +13,7 @@ import java.io.IOException;
 public class CreateAdminTest extends BaseTest {
 
     @Test(dataProvider = "companyData")
-    public void CreateAdminMethod(String cmpnyName,String email, String pan, String contactP, String contactPNumbr) throws IOException, InterruptedException {
+    public void CreateAdminMethod(String EnterpriseName,String ProgramName, String Role, String FirstName, String LastName,String Email_ID, String MobileNumber) throws IOException, InterruptedException {
         super.LoginMethod();
         Thread.sleep(5000);
 
@@ -23,7 +23,7 @@ public class CreateAdminTest extends BaseTest {
         Thread.sleep(3000);
 
         CreateAdminPageEvents createAdminEvents =new CreateAdminPageEvents(driver);
-        createAdminEvents.createAdmin(cmpnyName);
+        createAdminEvents.createAdmin(EnterpriseName);
         logger.addScreenCaptureFromPath("../screenshots/CreateAdminMethod.png");
 
     }
@@ -31,16 +31,16 @@ public class CreateAdminTest extends BaseTest {
 
     @DataProvider(name="companyData")
     Object[][] getData() throws IOException {
-        String path=System.getProperty("user.dir")+"/datafiles/"+"addEnterprise.xlsx";
+        String path=System.getProperty("user.dir")+"/datafiles/"+"kiteDDT.xlsx";
 //        logger.info(path);
-        int rownum= XLUtils.getRowCount(path, "Sheet1");
-        int colcount= XLUtils.getCellCount(path, "Sheet1", 1);
+        int rownum= XLUtils.getRowCount(path, "CreateAdmin");
+        int colcount= XLUtils.getCellCount(path, "CreateAdmin", 1);
 
         String[][] logindata =new String[rownum][colcount];
 
         for(int i=1; i<=rownum; i++){
             for(int j=0;j<colcount;j++){
-                logindata[i-1][j]= XLUtils.getCellData(path,"Sheet1",i,j);
+                logindata[i-1][j]= XLUtils.getCellData(path,"CreateAdmin",i,j);
             }
         }
 //        logger.info(String.valueOf(logindata));

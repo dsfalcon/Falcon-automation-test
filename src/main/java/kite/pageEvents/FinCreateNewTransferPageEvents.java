@@ -22,10 +22,10 @@ public class FinCreateNewTransferPageEvents extends CreateNewTransferPageElement
         PageFactory.initElements(rdriver, this);
     }
 
-    public void newTransfer(String cmpnyName) throws InterruptedException {
+    public void newTransfer(String CompanyCode) throws InterruptedException {
 
         selectForCompany.click();
-        searchCompany.sendKeys(cmpnyName);
+        searchCompany.sendKeys(CompanyCode);
         selectCompany.click();
         Thread.sleep(2000);
         SelectkitePrePaid.click();
@@ -39,7 +39,7 @@ public class FinCreateNewTransferPageEvents extends CreateNewTransferPageElement
         String Amount = String.valueOf(RandomString.generateNumber(4));
         transactionAmount.sendKeys(Amount);
         UTRnumber.sendKeys(RandomString.getAlphaNumericString(16));
-         MMTicketNumber.sendKeys("50000"+cmpnyName);
+         MMTicketNumber.sendKeys("50000"+CompanyCode);
         //MMTicketNumber.sendKeys("ame");
 
         initiatePayment.click();

@@ -44,7 +44,7 @@ public class SuitListener implements ITestListener, IAnnotationTransformer {
     public void onTestFailure(ITestResult iTestResult) {
         System.out.println("iTestResult" + iTestResult);
         // TODO Auto-generated method stub
-        try {
+      /*  try {
         String fileName = System.getProperty("user.dir") + File.separator + "screenshots" + File.separator + iTestResult.getMethod().getMethodName();
         File f = ((TakesScreenshot) BaseTest.driver).getScreenshotAs(OutputType.FILE);
 
@@ -52,7 +52,7 @@ public class SuitListener implements ITestListener, IAnnotationTransformer {
             FileHandler.copy(f, new File(fileName + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
         // FileUtils.copyFile();   /// not saported in the new version of the seleniu
 

@@ -12,7 +12,7 @@ public class TransactionPageTest extends LoginTest {
 
     @Test(dataProvider = "endUserData")
     public void TransactionPageMethod(String exDay, String exMonth, String exYear,String exDay2, String exMonth2, String exYear2) throws InterruptedException, IOException {
-        super.LoginMethodDart();
+
         logger.info("TransactionPageMethod"+exDay+"--------"+exMonth+"--------"+exYear);
         logger.info("Date Data -------> "+exDay2+"--------"+exMonth2+"--------"+exYear2);
         logger.info("AfterTransactionPageMethod");

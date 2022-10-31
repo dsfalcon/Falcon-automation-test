@@ -12,7 +12,7 @@ public class AddNewUserTest extends LoginTest {
 
     @Test(dataProvider = "endUserData")
     public void AddNewUserMethod(String fName, String lName, String mNumber, String email) throws InterruptedException, IOException {
-        super.LoginMethodDart();
+
 
         /*Add new user to portal */
         SideBarEvents sideBarEvents = new SideBarEvents(driver);

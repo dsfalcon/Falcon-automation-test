@@ -36,8 +36,8 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
         password.sendKeys(config.pass());
         Thread.sleep(3000);
         loginButton.click();
-        Thread.sleep(2000);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+       Thread.sleep(2000);
+      //  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         try {
             checkErr(errMsgOnPage);
@@ -53,7 +53,7 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
             Thread.sleep(2000);
             String errMsg = err.getText();
             // logger.info(errMsg);
-            Thread.sleep(2000);
+           Thread.sleep(2000);
             if (errMsg == null){
                 System.out.println("");
             }
