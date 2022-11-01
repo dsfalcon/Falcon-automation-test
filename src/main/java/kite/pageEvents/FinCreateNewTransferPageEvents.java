@@ -22,7 +22,7 @@ public class FinCreateNewTransferPageEvents extends CreateNewTransferPageElement
         PageFactory.initElements(rdriver, this);
     }
 
-    public void newTransfer(String CompanyCode) throws InterruptedException {
+    public void newTransfer(String CompanyCode,String EnterpriseName) throws InterruptedException {
 
         selectForCompany.click();
         searchCompany.sendKeys(CompanyCode);

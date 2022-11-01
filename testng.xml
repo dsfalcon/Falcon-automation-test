@@ -16,16 +16,16 @@
         </classes>
     </test>
 
-    <test name="Test Automation for Dart">
+   <!-- <test name="Test Automation for Dart">
         <parameter name="browserName" value="chrome"></parameter>
         <parameter name="projectName" value="dart"></parameter>
         <classes>
             <class name="test.java.dart.LoginTest"/>
             <class name="test.java.dart.AddNewUserTest"></class>
-          <!--  <class name="test.java.dart.TransactionPageTest"></class>
+          &lt;!&ndash;  <class name="test.java.dart.TransactionPageTest"></class>
             <class name="test.java.dart.CompanyAccountStatementTest"></class>
-            <class name="test.java.dart.BusinessReportTest"></class>-->
+            <class name="test.java.dart.BusinessReportTest"></class>&ndash;&gt;
         </classes>
-    </test>
+    </test>-->
 
 </suite>
