@@ -15,8 +15,15 @@ import java.util.concurrent.TimeUnit;
 
 public class FinCreteNewTransferTest extends BaseTest {
 
-    @Test(dataProvider = "finData")
-    public void FinCreteNewTransferMethod(String CompanyCode, String EnterpriseName) throws InterruptedException, IOException {
+    @Test(dataProvider = "manish")
+    public void FinCreteNewTransferMethod(String EnterpriseName, String Program, String FinancialProduct
+            , String BankName
+            , String AccountType
+            , String TransactionDate
+            , String mAmount
+            , String mUTRNumber
+            , String mMMTicketNumber
+    ) throws InterruptedException, IOException {
         Thread.sleep(5000);
         driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 
@@ -28,7 +35,7 @@ public class FinCreteNewTransferTest extends BaseTest {
         finSideBarEvents.goToNewTransfer();
 
         FinCreateNewTransferPageEvents finCreateNewTransferPageEvents = new FinCreateNewTransferPageEvents(driver);
-        finCreateNewTransferPageEvents.newTransfer(CompanyCode, EnterpriseName);
+        finCreateNewTransferPageEvents.newTransfer(EnterpriseName,Program,FinancialProduct,BankName,AccountType,TransactionDate, mAmount, mUTRNumber, mMMTicketNumber);
 
  //       logger.addScreenCaptureFromPath("../screenshots/FinCreteNewTransferMethod.png");
 
@@ -39,7 +46,7 @@ public class FinCreteNewTransferTest extends BaseTest {
 
 
 
-    @DataProvider(name = "finData")
+    @DataProvider(name = "manish")
     Object[][] getData() throws IOException {
         String path = System.getProperty("user.dir") + "/datafiles/" + "kiteDDT.xlsx";
         int rownum = XLUtils.getRowCount(path, "CreateNewTransfer");
@@ -52,7 +59,7 @@ public class FinCreteNewTransferTest extends BaseTest {
 
                 FileInputStream inputStream = new FileInputStream(new File(path));
                 Workbook workbook = new XSSFWorkbook(inputStream);
-                Sheet sheet = workbook.getSheetAt(1);
+                Sheet sheet = workbook.getSheetAt(3);
 
                 Row row = sheet.getRow(i);
                 Cell cell = row.getCell(j);

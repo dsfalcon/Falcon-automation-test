@@ -49,6 +49,7 @@ public class CreateAdminPageEvents extends CreateAdminPageElements {
         slctEP.click();
         Thread.sleep(3000);
         programName.click();
+        Thread.sleep(1000);
         roleSuAdmin.click();
         fstName.sendKeys(firstName);
         lstName.sendKeys(lastName);

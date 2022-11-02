@@ -46,7 +46,7 @@ public class CreateAdminTest extends BaseTest {
 
                 FileInputStream inputStream = new FileInputStream(new File(path));
                 Workbook workbook = new XSSFWorkbook(inputStream);
-                Sheet sheet = workbook.getSheetAt(1);
+                Sheet sheet = workbook.getSheetAt(2); // Excel Sheet number the sheet Start with 0 index value
 
                 Row row = sheet.getRow(i);
                 Cell cell = row.getCell(j);

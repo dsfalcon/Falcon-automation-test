@@ -42,7 +42,7 @@ public class FinViewTransferTest extends BaseTest {
 
                 FileInputStream inputStream = new FileInputStream(new File(path));
                 Workbook workbook = new XSSFWorkbook(inputStream);
-                Sheet sheet = workbook.getSheetAt(1);
+                Sheet sheet = workbook.getSheetAt(4);
 
                 Row row = sheet.getRow(i);
                 Cell cell = row.getCell(j);
