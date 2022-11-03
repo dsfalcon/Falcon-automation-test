@@ -7,6 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.IReporter;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import static test.java.BaseTest.driver;
@@ -14,6 +17,7 @@ import static test.java.BaseTest.logger;
 
 public class FinLoginPageEvents extends LoginPageElements implements IReporter {
 
+    static Properties prop = new Properties();
     FrameworkConfig config = ConfigFactory.create(FrameworkConfig.class);
 
     // GetPage Title
@@ -30,9 +34,17 @@ public class FinLoginPageEvents extends LoginPageElements implements IReporter {
         PageFactory.initElements(rdriver,this);
     }
     public void loginMethod () throws InterruptedException {
+        try{
+            String configPath = System.getProperty("user.dir") + "/resources/" + "FrameworkConfig.properties";
+            InputStream input = new FileInputStream(configPath);
+            prop.load(input);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
-        username.sendKeys(config.finemail());
-        password.sendKeys(config.finpass());
+        username.sendKeys(prop.getProperty("qa.finemail"));
+        password.sendKeys(prop.getProperty("qa.finpass"));
         Thread.sleep(3000);
         loginButton.click();
         Thread.sleep(7000);

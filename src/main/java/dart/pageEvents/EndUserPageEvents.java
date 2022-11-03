@@ -14,17 +14,18 @@ public class EndUserPageEvents extends EndUserPageElements {
     }
 
     public void addNewUser(String fName, String lName, String mNumber, String email) throws InterruptedException {
+       // Thread.sleep(2000);
         addNewUserBtn.click();
-        //Thread.sleep(3000);
+        //Thread.sleep(1000);
         firstName.sendKeys(fName);
-        // Thread.sleep(3000);
+        // Thread.sleep(1000);
         lastName.sendKeys(lName);
-        //  Thread.sleep(3000);
+        //  Thread.sleep(1000);
         mobileNumber.sendKeys(mNumber);
-        //  Thread.sleep(3000);
+        //  Thread.sleep(1000);
         selectRoleDropDown.click();
         // Thread.sleep(3000);
-        /*  roleAdmin.click();
+        /*  roleAdmin.click();  /html/body/app-root/app-post-auth/app-users/div/end-user-header/div/div[2]/div[2]/div[1]/button
          *  Thread.sleep(3000);
          * */
         roleStandard.click();
@@ -46,7 +47,7 @@ public class EndUserPageEvents extends EndUserPageElements {
 
     public void btnSubmit() throws InterruptedException {
         submitBtn.click();
-        Thread.sleep(7000);
+        Thread.sleep(1000);
 
 
         String fstNameErr1 = "Please enter the first name";

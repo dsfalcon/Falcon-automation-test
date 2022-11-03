@@ -15,6 +15,7 @@ public class SideBarEvents extends SideBarElements {
     public void goToEndUser () {
         users.click();
         endUser.click();
+
     }
 
     public void goToProgram() {

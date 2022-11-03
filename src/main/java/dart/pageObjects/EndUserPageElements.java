@@ -8,7 +8,7 @@ import test.java.BaseTest;
 public class EndUserPageElements extends BaseTest {
 
     /*Add new user Btton*/
-    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-users/div/app-user-header/div/div[2]/div[2]/div[1]/button")
+    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-users/div/end-user-header/div/div[2]/div[2]/div[1]/button")
     @CacheLookup
     public WebElement addNewUserBtn;
 
@@ -38,7 +38,8 @@ public class EndUserPageElements extends BaseTest {
     @CacheLookup
     public WebElement roleStandard;
 
-    @FindBy(xpath = "/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[6]/mat-radio-group/mat-radio-button[1]/label/div[2]")
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[7]/mat-radio-group/mat-radio-button[1]/label/div[1]")
+
     @CacheLookup
     public WebElement genderMale;
 
@@ -47,7 +48,7 @@ public class EndUserPageElements extends BaseTest {
     @CacheLookup
     public WebElement genderFemale;
 
-    @FindBy(xpath = "/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[8]/input")
+    @FindBy(xpath = "/html/body/app-dialog/div/div/app-add-users/div/div[2]/form/div[1]/div[9]/input")
     @CacheLookup
     public WebElement email;
 

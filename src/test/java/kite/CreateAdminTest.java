@@ -16,9 +16,9 @@ import java.io.IOException;
 
 public class CreateAdminTest extends BaseTest {
 
-    @Test(dataProvider = "companyData")
+    @Test(dataProvider = "adminData")
     public void CreateAdminMethod(String EnterpriseName,String ProgramName, String Role, String FirstName, String LastName,String Email_ID, String MobileNumber) throws IOException, InterruptedException {
-        super.LoginMethod();
+       super.LoginMethod();
         Thread.sleep(5000);
 
 
@@ -27,13 +27,13 @@ public class CreateAdminTest extends BaseTest {
         Thread.sleep(3000);
 
         CreateAdminPageEvents createAdminEvents =new CreateAdminPageEvents(driver);
-        createAdminEvents.createAdmin(EnterpriseName);
+        createAdminEvents.createAdmin(EnterpriseName, MobileNumber);
         logger.addScreenCaptureFromPath("../screenshots/CreateAdminMethod.png");
 
     }
 
 
-    @DataProvider(name = "companyData")
+    @DataProvider(name = "adminData")
     Object[][] getData() throws IOException {
         String path = System.getProperty("user.dir") + "/datafiles/" + "kiteDDT.xlsx";
         int rownum = XLUtils.getRowCount(path, "CreateAdmin");

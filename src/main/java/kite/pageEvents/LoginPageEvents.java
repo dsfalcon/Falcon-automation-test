@@ -9,12 +9,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.IReporter;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import static test.java.BaseTest.driver;
 import static test.java.BaseTest.logger;
 
 
 public class LoginPageEvents extends LoginPageElements implements IReporter {
+    static Properties prop = new Properties();
     FrameworkConfig config = ConfigFactory.create(FrameworkConfig.class);
 
     // GetPage Title
@@ -30,10 +36,18 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
         PageFactory.initElements(rdriver,this);
     }
 
-    public void loginMethod () throws InterruptedException {
+    public void loginMethod () throws InterruptedException, IOException {
+        try{
+            String configPath = System.getProperty("user.dir") + "/resources/" + "FrameworkConfig.properties";
+            InputStream input = new FileInputStream(configPath);
+            prop.load(input);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
-        username.sendKeys(config.email());
-        password.sendKeys(config.pass());
+        username.sendKeys(prop.getProperty("qa.email"));
+        password.sendKeys(prop.getProperty("qa.pass"));
         Thread.sleep(3000);
         loginButton.click();
        Thread.sleep(2000);

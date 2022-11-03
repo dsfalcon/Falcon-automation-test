@@ -6,12 +6,17 @@ import main.java.utils.XLUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Properties;
 
 import static test.java.BaseTest.*;
 
 public class CreateAdminPageEvents extends CreateAdminPageElements {
 
+    static Properties prop = new Properties();
     WebDriver ldriver;
     public CreateAdminPageEvents(WebDriver rdriver)
     {
@@ -19,7 +24,7 @@ public class CreateAdminPageEvents extends CreateAdminPageElements {
         PageFactory.initElements(rdriver,this);
     }
 
-    public void createAdmin(String EnterpriseName) throws InterruptedException, IOException {
+    public void createAdmin(String EnterpriseName, String MobileNumber) throws InterruptedException, IOException {
         /* **************** Create Admin Information****************/
 
        String firstName =  faker.address().firstName();
@@ -27,17 +32,33 @@ public class CreateAdminPageEvents extends CreateAdminPageElements {
        String emailID =  RandomString.getAlphaNumericString(5)+"@mailinator.com";
        String mobNumber = "98260"+RandomString.generateNumber(5);
         /* ****************** Set Data in Excel***************************** */
-        String path=System.getProperty("user.dir")+"/datafiles/"+"kiteDDT.xlsx";
+          String path=System.getProperty("user.dir")+"/datafiles/"+"kiteDDT.xlsx";
         /* ****************** Set Data in Excel***************************** */
+
+       // String configPath = System.getProperty("user.dir") + "/resources/" + "Newconf.properties";
+        String configPath = System.getProperty("user.dir") + "/resources/" + "FrameworkConfig.properties";
         try {
-            XLUtils.setCellData(path,"CreateAdmin",1,3,firstName);
+            XLUtils.setCellData(path,"DartLogin",1,1,mobNumber);
+            OutputStream output = new FileOutputStream(configPath);
+            prop.setProperty("environment","qa");
+            prop.setProperty("qa.email","superadmin@kite.work");
+            prop.setProperty("qa.pass","Kite@135#");
+            prop.setProperty("qa.kite","http://admin.kiteqa.com/");
+            prop.setProperty("qa.finemail","finadmin1@yopmail.com");
+            prop.setProperty("qa.finpass","Kite@135#");
+           // prop.setProperty("*********************Sepretor","********************************");
+            prop.setProperty("qa.dart","http://prepaid.kiteqa.com/");
+            prop.setProperty("qa.enterpriseId",EnterpriseName+"11");;
+            prop.setProperty("qa.username",mobNumber);
+            prop.setProperty("otp","111111");
+            prop.store(output,null);
+
+
         }catch (Exception e){
             logger.info(e);
         }
-
-        XLUtils.setCellData(path,"CreateAdmin",1,4,lastName);
-        XLUtils.setCellData(path,"CreateAdmin",1,5,emailID);
-        XLUtils.setCellData(path,"CreateAdmin",1,6,mobNumber);
+       /* XLUtils.setCellData(path,"CreateAdmin",1,4,lastName);
+        XLUtils.setCellData(path,"CreateAdmin",1,5,emailID);*/
 
 
         logger.info("Page Title is " + driver.getTitle());
@@ -55,8 +76,24 @@ public class CreateAdminPageEvents extends CreateAdminPageElements {
         lstName.sendKeys(lastName);
         email.sendKeys(emailID);
         moNumber.sendKeys(mobNumber);
+        System.out.println(mobNumber);
+        Thread.sleep(3000);
         submitButton.click();
         Thread.sleep(5000);
+
+    }
+    public  static  void writeProperties() throws IOException {
+        String configPath = System.getProperty("user.dir") + "/resources/" + "Newconf.properties";
+        try {
+            OutputStream output = new FileOutputStream(configPath);
+            prop.setProperty("qa.enterpriseId","EnterpriseName+'11'");
+            prop.setProperty("qa.username","mobNumber");
+            prop.setProperty("test","test");
+            prop.setProperty("test","1232323");
+            prop.store(output, null);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

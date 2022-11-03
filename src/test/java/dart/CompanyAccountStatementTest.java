@@ -1,6 +1,7 @@
 package test.java.dart;
 
 import main.java.dart.pageEvents.CompanyAccountStatementPageEvents;
+import main.java.dart.pageEvents.LoginPageEvents;
 import main.java.dart.pageEvents.SideBarEvents;
 import main.java.utils.XLUtils;
 import org.testng.annotations.DataProvider;
@@ -14,6 +15,9 @@ public class CompanyAccountStatementTest extends  LoginTest{
     public void CompanyAccountStatementPageMethod(String exDay, String exMonth, String exYear,String exDay2, String exMonth2, String exYear2) throws InterruptedException, IOException {
 
         /*Add new user to portal */
+        LoginPageEvents loginPageEvents = new LoginPageEvents(driver);
+        loginPageEvents.loginMethod();
+
         SideBarEvents sideBarEvents = new SideBarEvents(driver);
         sideBarEvents.goToCompanyAccountStatement();
         logger.info("Clicked on SideBar");

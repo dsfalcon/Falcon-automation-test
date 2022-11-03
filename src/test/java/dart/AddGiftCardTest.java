@@ -1,55 +1,47 @@
 package test.java.dart;
 
-import main.java.dart.pageEvents.EndUserPageEvents;
+import main.java.dart.pageEvents.AddGiftCardEvents;
 import main.java.dart.pageEvents.LoginPageEvents;
 import main.java.dart.pageEvents.SideBarEvents;
+import main.java.utils.DatabaseConnection;
 import main.java.utils.XLUtils;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import test.java.BaseTest;
 
 import java.io.IOException;
 
-public class AddNewUserTest extends LoginTest {
+public class AddGiftCardTest extends BaseTest {
 
     @Test(dataProvider = "endUserData")
-    public void AddNewUserMethod(String fName, String lName, String mNumber, String email) throws InterruptedException, IOException {
-
-
+    public void AddNewGiftCardMethod(String FirstName, String LastName, String mNumber, String email) throws InterruptedException {
         /*Add new user to portal */
         LoginPageEvents loginPageEvents = new LoginPageEvents(driver);
         loginPageEvents.loginMethod();
 
         SideBarEvents sideBarEvents = new SideBarEvents(driver);
         sideBarEvents.goToEndUser();
-        logger.info("Clicked on SideBar");
-        logger.info(fName+lName+mNumber);
 
-        EndUserPageEvents endUserEvents = new EndUserPageEvents(driver);
-        Thread.sleep(2000);
-        endUserEvents.addNewUser(fName,lName,mNumber,email);
-        endUserEvents.btnSubmit();
-        logger.addScreenCaptureFromPath("../screenshots/AddNewUserMethod.png");
+
+
+        AddGiftCardEvents addGiftCardEvents = new AddGiftCardEvents(driver);
+        addGiftCardEvents.selectUserToAddCard(FirstName);
 
     }
-
 
     @DataProvider(name="endUserData")
     Object[][] getData() throws IOException {
         String path=System.getProperty("user.dir")+"/datafiles/"+"enduserdata1.xlsx";
-       // logger.info(path);
         int rownum= XLUtils.getRowCount(path, "Sheet2");
         int colcount= XLUtils.getCellCount(path, "Sheet2", 1);
 
         String[][] logindata =new String[rownum][colcount];
 
-        for(int i=1; i<=rownum; i++){
+        for(int i=1; i<=5; i++){ /* only for the 5 users else i<= rownum*/
             for(int j=0;j<colcount;j++){
                 logindata[i-1][j]= XLUtils.getCellData(path,"Sheet2",i,j);
             }
         }
-    //    logger.info(String.valueOf(logindata));
-
         return logindata;
     }
-
 }
