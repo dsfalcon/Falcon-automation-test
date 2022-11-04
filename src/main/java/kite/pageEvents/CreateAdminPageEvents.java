@@ -46,6 +46,7 @@ public class CreateAdminPageEvents extends CreateAdminPageElements {
             prop.setProperty("qa.kite","http://admin.kiteqa.com/");
             prop.setProperty("qa.finemail","finadmin1@yopmail.com");
             prop.setProperty("qa.finpass","Kite@135#");
+            prop.setProperty("qa.simulator","https://simulator.qa.kitetest.me/");
            // prop.setProperty("*********************Sepretor","********************************");
             prop.setProperty("qa.dart","http://prepaid.kiteqa.com/");
             prop.setProperty("qa.enterpriseId",EnterpriseName+"11");;

@@ -22,9 +22,9 @@ public class TransactionPageEvents extends TransactionPageElements {
     }
 
     public void filterData() throws InterruptedException {
-        WebDriverWait w = new WebDriverWait(driver,3);
+        WebDriverWait wait = new WebDriverWait(driver,3);
         // presenceOfElementLocated condition
-        w.until(ExpectedConditions.presenceOfElementLocated (By.xpath("/html/body/app-root/app-post-auth/app-transactions/div/div/app-transactions-header/div/div[4]/div[2]/tr/td[2]/button")));
+        wait.until(ExpectedConditions.presenceOfElementLocated (By.xpath("/html/body/app-root/app-post-auth/app-transactions/div/div/app-transactions-header/div/div[4]/div[2]/tr/td[2]/button")));
         filterButton.click();
         Thread.sleep(2000);
     }
