@@ -1,8 +1,7 @@
 package test.java.dart;
 
-import main.java.dart.pageEvents.LoginPageEvents;
+
 import main.java.dart.pageEvents.SimulatorTransactionEvents;
-import main.java.utils.DatabaseConnection;
 import main.java.utils.XLUtils;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -13,9 +12,7 @@ import java.io.IOException;
 public class SimulatorTransactionTest extends LoginTest {
 
     @Test(dataProvider = "cardData")
-    public void SimulatorTransactionMethod(String cardIDs) throws InterruptedException, IOException {
-       /* LoginPageEvents loginPageEvents = new LoginPageEvents(driver);
-        loginPageEvents.loginMethod();*/
+    public void SimulatorTransactionMethod(String cardIDs) throws InterruptedException {
 
         SimulatorTransactionEvents simulatorTransactionEvents = new SimulatorTransactionEvents(driver);
         simulatorTransactionEvents.OpenSimulator(cardIDs);
