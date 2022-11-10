@@ -13,6 +13,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
+import static test.java.BaseTest.driver;
+import static test.java.BaseTest.logger;
+
 public class AddGiftCardEvents extends AddGiftCardElements {
 
     WebDriver ldriver;
@@ -32,24 +35,34 @@ public class AddGiftCardEvents extends AddGiftCardElements {
         clickOnAddGiftCardButton.click();
         selectSingleCard.click();
         selectVirtualCard.click();
-        List<WebElement> er = null;
-        List<WebElement> er2 = null;
+        //enterBinNUmber.sendKeys("607091");
+       // enterBinNUmber.sendKeys("100");
+        enterAmount.sendKeys("0");
+        clickOnSubmitButton.click();
+        Thread.sleep(7000);
+
+
         try {
-            enterBinNUmber.sendKeys("607091");
-            enterAmount.sendKeys("1000");
-            er2 = ldriver.findElements(By.className("number-error"));
-            clickOnSubmitButton.click();
-            Thread.sleep(5000);
-            er = ldriver.findElements(By.className("open error"));
+            List<WebElement> er1 = driver.findElements(By.className("number-error"));
+            List<WebElement> er2 = driver.findElements(By.className("notification"));
+            for (int i = 0; i < er2.size(); i++) {
+                String elementText = er2.get(i).getText();
+                System.out.println("Notification Displayed on Page "+elementText);
+                logger.info("Notification Displayed on Page "+elementText);
+            }
+            for (int i = 0; i < er1.size(); i++) {
+                String elementText = er1.get(i).getText();
+                System.out.println("Field Error Displayed on Page "+elementText);
+                logger.info("Field Error Displayed on Page "+elementText);
+            }
+
+
         } catch (Exception e) {
-            System.out.println(er);
-            System.out.println(er2);
-            System.out.println("test");
-            System.out.println(e.getMessage());
+            logger.info("Got Some Exception While Checking the errors on the Form::::: " + e.getMessage());
+
+
         }
 
 
     }
-
-
 }

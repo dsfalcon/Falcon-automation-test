@@ -20,7 +20,7 @@ public class AddGiftCardElements {
     @CacheLookup
     public WebElement searchBox;
 
-    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-users/div/app-user-details/div[1]/div/perfect-scrollbar/div/div[1]/table/tbody/tr/td[1]/tr/mat-checkbox/label/div")
+    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-users/div/app-user-details/div[1]/div/perfect-scrollbar/div/div[1]/table/tbody/tr[1]/td[1]/tr/mat-checkbox/label/div")
     @CacheLookup
     public WebElement selectCheckbox;
 
