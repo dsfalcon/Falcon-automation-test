@@ -4,17 +4,21 @@ import main.java.kite.pageEvents.CreateAdminPageEvents;
 import main.java.kite.pageEvents.SideBarEvents;
 
 import main.java.utils.XLUtils;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.java.BaseTest;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class CreateAdminTest extends BaseTest {
 
-    @Test(dataProvider = "companyData")
-    public void CreateAdminMethod(String companyName,String email, String pan, String contactP, String contactPNumbr) throws IOException, InterruptedException {
-        super.LoginMethod();
+    @Test(dataProvider = "adminData")
+    public void CreateAdminMethod(String EnterpriseName,String ProgramName, String Role, String FirstName, String LastName,String Email_ID, String MobileNumber) throws IOException, InterruptedException {
+       super.LoginMethod();
         Thread.sleep(5000);
 
 
@@ -23,27 +27,55 @@ public class CreateAdminTest extends BaseTest {
         Thread.sleep(3000);
 
         CreateAdminPageEvents createAdminEvents =new CreateAdminPageEvents(driver);
-        createAdminEvents.createAdmin(companyName);
+        createAdminEvents.createAdmin(EnterpriseName, MobileNumber);
         logger.addScreenCaptureFromPath("../screenshots/CreateAdminMethod.png");
 
     }
 
 
-    @DataProvider(name="companyData")
+    @DataProvider(name = "adminData")
     Object[][] getData() throws IOException {
-        String path=System.getProperty("user.dir")+"/datafiles/"+"addEnterprise.xlsx";
-//        logger.info(path);
-        int rownum= XLUtils.getRowCount(path, "Sheet1");
-        int colcount= XLUtils.getCellCount(path, "Sheet1", 1);
+        String path = System.getProperty("user.dir") + "/datafiles/" + "kiteDDT.xlsx";
+        int rownum = XLUtils.getRowCount(path, "CreateAdmin");
+        int colcount = XLUtils.getCellCount(path, "CreateAdmin", 1);
 
-        String[][] logindata =new String[rownum][colcount];
+        String[][] logindata = new String[rownum][colcount];
 
-        for(int i=1; i<=rownum; i++){
-            for(int j=0;j<colcount;j++){
-                logindata[i-1][j]= XLUtils.getCellData(path,"Sheet1",i,j);
+        for (int i = 1; i <= rownum; i++) {
+            for (int j = 0; j < colcount; j++) {
+
+                FileInputStream inputStream = new FileInputStream(new File(path));
+                Workbook workbook = new XSSFWorkbook(inputStream);
+                Sheet sheet = workbook.getSheetAt(2); // Excel Sheet number the sheet Start with 0 index value
+
+                Row row = sheet.getRow(i);
+                Cell cell = row.getCell(j);
+
+                FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();
+                if (cell != null && cell.getCellType() == CellType.FORMULA) {
+
+                    switch (cell.getCachedFormulaResultType()) {
+                        //  switch (evaluator.evaluateFormulaCell(cell)) {
+                        case BOOLEAN:
+                            System.out.println(cell.getBooleanCellValue());
+                            break;
+                        case NUMERIC:
+                            System.out.println(cell.getNumericCellValue());
+                            break;
+                        case STRING:
+                            logindata[i - 1][j] = cell.getRichStringCellValue().getString();
+                            System.out.println(cell.getRichStringCellValue());
+                            break;
+                    }
+                }
+                else {
+                    logindata[i - 1][j] = XLUtils.getCellData(path, "CreateAdmin", i, j);
+                }
+
+//
             }
         }
-//        logger.info(String.valueOf(logindata));
+
 
         return logindata;
     }

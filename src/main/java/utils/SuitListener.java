@@ -45,8 +45,8 @@ public class SuitListener implements ITestListener, IAnnotationTransformer {
         System.out.println("iTestResult" + iTestResult);
         // TODO Auto-generated method stub
         try {
-        String fileName = System.getProperty("user.dir") + File.separator + "screenshots" + File.separator + iTestResult.getMethod().getMethodName();
-        File f = ((TakesScreenshot) BaseTest.driver).getScreenshotAs(OutputType.FILE);
+            String fileName = System.getProperty("user.dir") + File.separator + "screenshots" + File.separator + iTestResult.getMethod().getMethodName();
+            File f = ((TakesScreenshot) BaseTest.driver).getScreenshotAs(OutputType.FILE);
 
 
             FileHandler.copy(f, new File(fileName + ".png"));

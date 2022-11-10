@@ -18,13 +18,13 @@ public class FinViewTransferPageEvents extends ViewTransferElements {
         PageFactory.initElements(rdriver,this);
     }
 
-    public void approveTransfer(String cmpnyName) throws InterruptedException, IOException {
+    public void approveTransfer(String EnterpriseName) throws InterruptedException, IOException {
         Thread.sleep(2000);
         seachCompany.click();
         Thread.sleep(4000);
         String path=System.getProperty("user.dir")+"/datafiles/"+"test.xlsx";
         XLUtils.setCellData(path,"Sheet1",1,2,"TestDat in file");
-        enterCompany.sendKeys(cmpnyName);
+        enterCompany.sendKeys(EnterpriseName);
         selectCompany.click();
         Thread.sleep(2000);
         selectYesBank.click();

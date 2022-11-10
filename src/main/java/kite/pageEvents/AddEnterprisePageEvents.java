@@ -79,8 +79,8 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         loadMoneyYesButton.click();
         impsPayOutYesButton.click();
         issuerButton.click();
-        String authTokenEmailIDText = DisplayName;
-        authTokenEmailID.sendKeys(authTokenEmailIDText);
+
+        authTokenEmailID.sendKeys(Email_ID);
     //    XLUtils.setCellData(path,"Sheet1",1,1,authTokenEmailIDText);
 
         /* *******************Tax Related Details******************** */
@@ -104,20 +104,6 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
         /*Now Check For error*/
         try {
 
-//            checkErr(companyCodeError);
-//            checkErr(enterpriseError);
-//            checkErr(displayNameError);
-//            checkErr(contactPersonNameError);
-//            checkErr(contactPersonPhoneNumberError);
-//            checkErr(alternatePhoneNumberError);
-//            checkErr(zipCodeError);
-//            checkErr(authTokenEmailIDError);
-//            checkErr(companyURLError);
-//            checkErr(tanError);
-//            checkErr(panError);
-//            checkErr(gstinError);
-//            checkErr(getContactPersonEmailError);
-
            List<WebElement> errList = driver.findElements(By.className("errorMessage"));
             for(int i =0;i<errList.size();i++) {
                 String elementText = errList.get(i).getText();
@@ -125,21 +111,23 @@ public class AddEnterprisePageEvents extends AddEnterprisePageElements {
                 logger.info(elementText);
             }
          //  logger.info("Error List ::: "+errList);
-            confirmButton.click();
+
+            submitButton.click();
+            Thread.sleep(2000);
         }
         catch (Exception e){
             logger.info("Got Some Exception While Checking the errors on the Form::::: "+e.getMessage());
         }
 
         try {
+            confirmButton.click();
 
-            submitButton.click();
-       //     Thread.sleep(3000);
+           Thread.sleep(3000);
             /* To Allow the Creation of the company */
             String BoxText = accessPopUp.getText();
             String alertMessage= driver.switchTo().alert().getText(); // capture alert message
             logger.info(BoxText);
-           // Thread.sleep(3000);
+            Thread.sleep(3000);
         }
         catch (Exception e){
             logger.info("Got Some Exception for Enterprise Page ::::: "+e.getMessage());

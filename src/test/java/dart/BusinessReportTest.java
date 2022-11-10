@@ -27,7 +27,7 @@ public class BusinessReportTest extends LoginTest {
 
 
     ) throws InterruptedException, IOException {
-       super.LoginMethodDart();
+
         /*Add new user to portal */
         SideBarEvents sideBarEvents = new SideBarEvents(driver);
         sideBarEvents.goToBusinessReport();

@@ -1,7 +1,9 @@
 package test.java.dart;
 
+import main.java.dart.pageEvents.LoginPageEvents;
 import main.java.dart.pageEvents.SideBarEvents;
 import main.java.dart.pageEvents.TransactionPageEvents;
+import main.java.kite.pageEvents.FinLoginPageEvents;
 import main.java.utils.XLUtils;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -11,13 +13,22 @@ import java.io.IOException;
 public class TransactionPageTest extends LoginTest {
 
     @Test(dataProvider = "endUserData")
-    public void TransactionPageMethod(String exDay, String exMonth, String exYear,String exDay2, String exMonth2, String exYear2) throws InterruptedException, IOException {
-        super.LoginMethodDart();
+    public void TransactionPageMethod(String exDay,
+                                      String exMonth,
+                                      String exYear,
+                                      String exDay2,
+                                      String exMonth2,
+                                      String exYear2
+    ) throws InterruptedException, IOException {
+
         logger.info("TransactionPageMethod"+exDay+"--------"+exMonth+"--------"+exYear);
         logger.info("Date Data -------> "+exDay2+"--------"+exMonth2+"--------"+exYear2);
         logger.info("AfterTransactionPageMethod");
 
         /*Add new user to portal */
+        LoginPageEvents loginPageEvents = new LoginPageEvents(driver);
+        loginPageEvents.loginMethod();
+
         SideBarEvents sideBarEvents = new SideBarEvents(driver);
         sideBarEvents.goToTransaction();
         logger.info("Clicked on SideBar");

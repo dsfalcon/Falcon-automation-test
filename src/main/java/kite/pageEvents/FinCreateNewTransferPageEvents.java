@@ -22,10 +22,16 @@ public class FinCreateNewTransferPageEvents extends CreateNewTransferPageElement
         PageFactory.initElements(rdriver, this);
     }
 
-    public void newTransfer(String cmpnyName) throws InterruptedException {
+    public void newTransfer(String EnterpriseName, String Program, String FinancialProduct
+            , String BankName
+            , String AccountType
+            , String TransactionDate
+            , String Amount
+            , String mUTRNumber
+            , String mMMTicketNumber) throws InterruptedException {
 
         selectForCompany.click();
-        searchCompany.sendKeys(cmpnyName);
+        searchCompany.sendKeys(EnterpriseName);
         selectCompany.click();
         Thread.sleep(2000);
         SelectkitePrePaid.click();
@@ -36,10 +42,10 @@ public class FinCreateNewTransferPageEvents extends CreateNewTransferPageElement
         //String simpleformat = new SimpleDateFormat("15-10-2022").format(new Date());
         //String date = String.valueOf(simpleformat);
         transactionDate.sendKeys(simpleformat);
-        String Amount = String.valueOf(RandomString.generateNumber(4));
-        transactionAmount.sendKeys(Amount);
+        String mAmount = String.valueOf(RandomString.generateNumber(4));
+        transactionAmount.sendKeys(mAmount);
         UTRnumber.sendKeys(RandomString.getAlphaNumericString(16));
-         MMTicketNumber.sendKeys("50000"+cmpnyName);
+         MMTicketNumber.sendKeys("50000"+EnterpriseName);
         //MMTicketNumber.sendKeys("ame");
 
         initiatePayment.click();

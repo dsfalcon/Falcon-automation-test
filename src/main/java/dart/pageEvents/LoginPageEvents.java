@@ -5,13 +5,15 @@ import main.java.dart.pageObjects.LoginPageElements;
 import main.java.utils.FrameworkConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.IReporter;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import static test.java.BaseTest.driver;
@@ -19,12 +21,13 @@ import static test.java.BaseTest.logger;
 
 public class LoginPageEvents extends LoginPageElements implements IReporter {
 
+    static Properties prop = new Properties();
     FrameworkConfig config = ConfigFactory.create(FrameworkConfig.class);
 
     // GetPage Title
     public void getTitleCompany() throws InterruptedException {
         logger.info("Page Title is " + driver.getTitle());
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
 
     }
 
@@ -37,11 +40,17 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
 
 
     public void loginMethod() throws InterruptedException {
+        try{
+            String configPath = System.getProperty("user.dir") + "/resources/" + "FrameworkConfig.properties";
+            InputStream input = new FileInputStream(configPath);
+            prop.load(input);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
         try {
-
-
 //        Thread.sleep(3000);
-        enterpriseId.sendKeys(config.enterpriseId());
+        enterpriseId.sendKeys(prop.getProperty("qa.enterpriseId"));
         nxtButton.click();
         Thread.sleep(2000);
         String err1 = "Enterprise not authorised. ";
@@ -67,12 +76,12 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
             }
         } else {
             logger.info("isvalidElse " + isvalid);
-            username.sendKeys(config.username());
+            username.sendKeys(prop.getProperty("qa.username"));
             sendOTP.click();
             Thread.sleep(2000);
-            enterOTP.sendKeys(config.otp());
+            enterOTP.sendKeys(prop.getProperty("otp"));
             loginButton.click();
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         }
         }catch (Exception e){

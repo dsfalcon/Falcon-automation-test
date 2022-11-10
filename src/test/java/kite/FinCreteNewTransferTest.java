@@ -2,17 +2,28 @@ package test.java.kite;
 
 import main.java.kite.pageEvents.*;
 import main.java.utils.XLUtils;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.java.BaseTest;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class FinCreteNewTransferTest extends BaseTest {
 
-    @Test(dataProvider = "finData")
-    public void FinCreteNewTransferMethod(String cmpnyName,String email, String pan, String contactP, String contactPNumbr) throws InterruptedException, IOException {
+    @Test(dataProvider = "manish")
+    public void FinCreteNewTransferMethod(String EnterpriseName, String Program, String FinancialProduct
+            , String BankName
+            , String AccountType
+            , String TransactionDate
+            , String mAmount
+            , String mUTRNumber
+            , String mMMTicketNumber
+    ) throws InterruptedException, IOException {
         Thread.sleep(5000);
         driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 
@@ -24,7 +35,7 @@ public class FinCreteNewTransferTest extends BaseTest {
         finSideBarEvents.goToNewTransfer();
 
         FinCreateNewTransferPageEvents finCreateNewTransferPageEvents = new FinCreateNewTransferPageEvents(driver);
-        finCreateNewTransferPageEvents.newTransfer(cmpnyName);
+        finCreateNewTransferPageEvents.newTransfer(EnterpriseName,Program,FinancialProduct,BankName,AccountType,TransactionDate, mAmount, mUTRNumber, mMMTicketNumber);
 
  //       logger.addScreenCaptureFromPath("../screenshots/FinCreteNewTransferMethod.png");
 
@@ -35,21 +46,47 @@ public class FinCreteNewTransferTest extends BaseTest {
 
 
 
-    @DataProvider(name="finData")
+    @DataProvider(name = "manish")
     Object[][] getData() throws IOException {
-        String path=System.getProperty("user.dir")+"/datafiles/"+"addEnterprise.xlsx";
-//        logger.info(path);
-        int rownum= XLUtils.getRowCount(path, "Sheet1");
-        int colcount= XLUtils.getCellCount(path, "Sheet1", 1);
+        String path = System.getProperty("user.dir") + "/datafiles/" + "kiteDDT.xlsx";
+        int rownum = XLUtils.getRowCount(path, "CreateNewTransfer");
+        int colcount = XLUtils.getCellCount(path, "CreateNewTransfer", 1);
 
-        String[][] logindata =new String[rownum][colcount];
+        String[][] logindata = new String[rownum][colcount];
 
-        for(int i=1; i<=rownum; i++){
-            for(int j=0;j<colcount;j++){
-                logindata[i-1][j]= XLUtils.getCellData(path,"Sheet1",i,j);
+        for (int i = 1; i <= rownum; i++) {
+            for (int j = 0; j < colcount; j++) {
+
+                FileInputStream inputStream = new FileInputStream(new File(path));
+                Workbook workbook = new XSSFWorkbook(inputStream);
+                Sheet sheet = workbook.getSheetAt(3);
+
+                Row row = sheet.getRow(i);
+                Cell cell = row.getCell(j);
+
+                FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();
+                if (cell != null && cell.getCellType() == CellType.FORMULA) {
+
+                    switch (cell.getCachedFormulaResultType()) {
+                        //  switch (evaluator.evaluateFormulaCell(cell)) {
+                        case BOOLEAN:
+                            System.out.println(cell.getBooleanCellValue());
+                            break;
+                        case NUMERIC:
+                            System.out.println(cell.getNumericCellValue());
+                            break;
+                        case STRING:
+                            logindata[i - 1][j] = cell.getRichStringCellValue().getString();
+                            System.out.println(cell.getRichStringCellValue());
+                            break;
+                    }
+                }
+                else {
+                    logindata[i - 1][j] = XLUtils.getCellData(path, "CreateNewTransfer", i, j);
+                }
             }
         }
-    // logger.info(String.valueOf(logindata));
+
 
         return logindata;
     }

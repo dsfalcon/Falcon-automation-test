@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class AddEnterprisePageElements {
 
+    /* Basic Information */
+
     @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[2]/td[3]/input")
     @CacheLookup
     public WebElement companyCode;
@@ -87,9 +89,87 @@ public class AddEnterprisePageElements {
     public WebElement clickOutSideToGetError;
 
 
+
+
+
+
+    @FindBy(id = "DISABLED")
+    @CacheLookup
+    public WebElement upiPpi;
+
+    @FindBy(id = "INDUSIND")
+    @CacheLookup
+    public WebElement INDUSIND;
+
+    @FindBy(id = "openApiMobileNumber")
+    @CacheLookup
+    public WebElement authTokenEmailId;
+
+    @FindBy(id = "partnerKey")
+    @CacheLookup
+    public WebElement partnerKey;
+
+    @FindBy(id = "gprCardIssuerCode")
+    @CacheLookup
+    public WebElement issuerCode;
+
+    @FindBy(id = "gprCardIssuerSecret")
+    @CacheLookup
+    public WebElement issuerSecret;
+
+    @FindBy(id = "gprCardPsk")
+    @CacheLookup
+    public WebElement PSK;
+
+    @FindBy(id = "natureOfBusiness")
+    @CacheLookup
+    public WebElement natureOfBusiness;
+
+    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[25]/td[3]/input")
+    @CacheLookup
+    public WebElement dateOfIncorporation;
+
+    @FindBy(id = "companyUrl")
+    @CacheLookup
+    public WebElement companyURL;
+
+
+    @FindBy(id = "contactPersonNumber")
+    @CacheLookup
+    public WebElement contactPersonPhoneNumber;
+
+    @FindBy(id = "alternatePhoneNumber")
+    @CacheLookup
+    public WebElement alternatePhoneNumber;
+
+    @FindBy(id = "emailId")
+    @CacheLookup
+    public WebElement emailID;
+
+    @FindBy(id = "address1")
+    @CacheLookup
+    public WebElement address1;
+
+    @FindBy(id = "address2")
+    @CacheLookup
+    public WebElement address2;
+
+    @FindBy(id = "city")
+    @CacheLookup
+    public WebElement City;
+
+    @FindBy(id = "state")
+    @CacheLookup
+    public WebElement State;
+
+    @FindBy(id = "zip")
+    @CacheLookup
+    public WebElement zipCode;
+
+
     /*  Error message */
 
-    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[2]/td[5]")
+    /*@FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[2]/td[5]")
     @CacheLookup
     public WebElement companyCodeError;
 
@@ -144,7 +224,7 @@ public class AddEnterprisePageElements {
  @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-add-enterprise/form/table/tbody/tr[37]/td[5]")
     @CacheLookup
     public WebElement getContactPersonEmailError;
-
+*/
 
 
 

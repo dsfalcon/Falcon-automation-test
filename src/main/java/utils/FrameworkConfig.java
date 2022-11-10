@@ -2,6 +2,8 @@ package main.java.utils;
 
 import org.aeonbits.owner.Config;
 
+import java.util.Properties;
+
 @Config.Sources(value = "file:${user.dir}/resources/FrameworkConfig.properties")
 public interface FrameworkConfig extends Config {
 
@@ -36,4 +38,9 @@ public interface FrameworkConfig extends Config {
 
     @Key("${environment}.dart")
     String dart();
+
+    @Key("${environment}.dart")
+    String simulator();
+
+    static Properties prop = new Properties();
 }
