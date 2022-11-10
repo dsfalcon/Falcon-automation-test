@@ -2,13 +2,16 @@ package main.java.dart.pageEvents;
 
 import main.java.dart.pageObjects.AddGiftCardElements;
 import main.java.utils.DatabaseConnection;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class AddGiftCardEvents extends AddGiftCardElements {
 
@@ -29,10 +32,21 @@ public class AddGiftCardEvents extends AddGiftCardElements {
         clickOnAddGiftCardButton.click();
         selectSingleCard.click();
         selectVirtualCard.click();
-        enterBinNUmber.sendKeys("607091");
-        enterAmount.sendKeys("1000");
-        clickOnSubmitButton.click();
-        Thread.sleep(3000);
+        List<WebElement> er = null;
+        List<WebElement> er2 = null;
+        try {
+            enterBinNUmber.sendKeys("607091");
+            enterAmount.sendKeys("1000");
+            er2 = ldriver.findElements(By.className("number-error"));
+            clickOnSubmitButton.click();
+            Thread.sleep(5000);
+            er = ldriver.findElements(By.className("open error"));
+        } catch (Exception e) {
+            System.out.println(er);
+            System.out.println(er2);
+            System.out.println("test");
+            System.out.println(e.getMessage());
+        }
 
 
     }
