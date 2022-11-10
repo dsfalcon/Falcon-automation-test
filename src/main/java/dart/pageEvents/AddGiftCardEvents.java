@@ -44,7 +44,7 @@ public class AddGiftCardEvents extends AddGiftCardElements {
         } catch (Exception e) {
             System.out.println(er);
             System.out.println(er2);
-            System.out.println("test");
+            System.out.println("Error Resolved for Git");
             System.out.println(e.getMessage());
         }
 
