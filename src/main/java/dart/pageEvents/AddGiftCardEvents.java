@@ -35,8 +35,7 @@ public class AddGiftCardEvents extends AddGiftCardElements {
         clickOnAddGiftCardButton.click();
         selectSingleCard.click();
         selectVirtualCard.click();
-        //enterBinNUmber.sendKeys("607091");
-       // enterBinNUmber.sendKeys("100");
+        enterBinNUmber.sendKeys("607091");
         enterAmount.sendKeys("0");
         clickOnSubmitButton.click();
         Thread.sleep(7000);

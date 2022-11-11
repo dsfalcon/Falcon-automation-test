@@ -11,9 +11,10 @@ import java.io.IOException;
 
 public class AddNewUserTest extends LoginTest {
 
+
+
     @Test(dataProvider = "endUserData")
     public void AddNewUserMethod(String fName, String lName, String mNumber, String email) throws InterruptedException, IOException {
-
 
         /*Add new user to portal */
         LoginPageEvents loginPageEvents = new LoginPageEvents(driver);
@@ -33,6 +34,7 @@ public class AddNewUserTest extends LoginTest {
     }
 
 
+
     @DataProvider(name="endUserData")
     Object[][] getData() throws IOException {
         String path=System.getProperty("user.dir")+"/datafiles/"+"enduserdata1.xlsx";
@@ -47,8 +49,6 @@ public class AddNewUserTest extends LoginTest {
                 logindata[i-1][j]= XLUtils.getCellData(path,"Sheet5",i,j);
             }
         }
-    //    logger.info(String.valueOf(logindata));
-
         return logindata;
     }
 

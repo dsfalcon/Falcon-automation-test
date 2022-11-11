@@ -2,6 +2,7 @@ package main.java.dart.pageEvents;
 
 
 import main.java.dart.pageObjects.LoginPageElements;
+import main.java.utils.ElementWaits;
 import main.java.utils.FrameworkConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.By;
@@ -49,8 +50,8 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
             e.printStackTrace();
         }
         try {
-//        Thread.sleep(3000);
-        enterpriseId.sendKeys(prop.getProperty("qa.enterpriseId"));
+            ElementWaits.waitForElementToBeVisible(ldriver,enterpriseId,300).sendKeys(prop.getProperty("qa.enterpriseId"));
+
         nxtButton.click();
         Thread.sleep(2000);
         String err1 = "Enterprise not authorised. ";

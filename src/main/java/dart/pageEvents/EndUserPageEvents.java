@@ -1,6 +1,8 @@
 package main.java.dart.pageEvents;
 
 import main.java.dart.pageObjects.EndUserPageElements;
+import main.java.utils.ElementWaits;
+import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -14,6 +16,15 @@ public class EndUserPageEvents extends EndUserPageElements {
     }
 
     public void addNewUser(String fName, String lName, String mNumber, String email) throws InterruptedException {
+        try {
+            ElementWaits.waitForElementToBeVisible(ldriver,userCountDiplayed,300).getText();
+
+            logger.info("User Count Displayed on the Portal: "+userCountDiplayed.getText());
+            System.out.println("<================= User Count Displayed on the Portal:=================> "+userCountDiplayed.getText());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
        // Thread.sleep(2000);
         addNewUserBtn.click();
         //Thread.sleep(1000);
@@ -47,7 +58,7 @@ public class EndUserPageEvents extends EndUserPageElements {
 
     public void btnSubmit() throws InterruptedException {
         submitBtn.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
 
         String fstNameErr1 = "Please enter the first name";

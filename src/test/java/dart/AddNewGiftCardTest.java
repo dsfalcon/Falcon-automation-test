@@ -31,14 +31,14 @@ public class AddNewGiftCardTest extends BaseTest {
     @DataProvider(name="endUserData")
     Object[][] getData() throws IOException {
         String path=System.getProperty("user.dir")+"/datafiles/"+"enduserdata1.xlsx";
-        int rownum= XLUtils.getRowCount(path, "Sheet5");
-        int colcount= XLUtils.getCellCount(path, "Sheet5", 1);
+        int rownum= XLUtils.getRowCount(path, "Sheet2");
+        int colcount= XLUtils.getCellCount(path, "Sheet2", 1);
 
         String[][] logindata =new String[rownum][colcount];
 
         for(int i=1; i<=rownum; i++){ /* only for the 5 users else i<= rownum*/
             for(int j=0;j<colcount;j++){
-                logindata[i-1][j]= XLUtils.getCellData(path,"Sheet5",i,j);
+                logindata[i-1][j]= XLUtils.getCellData(path,"Sheet2",i,j);
             }
         }
         return logindata;
