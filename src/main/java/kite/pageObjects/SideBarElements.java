@@ -18,8 +18,7 @@ public class SideBarElements {
     public
     WebElement addEnterprisesSubMenu;
 
-    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[1]/app-menu/ul/li[1]/ul/li[3]/a")
-
+    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[1]/app-menu/ul/li[1]/ul/li[4]/a")
     @CacheLookup
     public
     WebElement createAdmin;

@@ -1,6 +1,7 @@
 package main.java.dart.pageEvents;
 
 import main.java.dart.pageObjects.SideBarElements;
+import main.java.utils.ElementWaits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -13,8 +14,15 @@ public class SideBarEvents extends SideBarElements {
     }
 
     public void goToEndUser () {
-        users.click();
-        endUser.click();
+        try{
+            ElementWaits.waitForElementToBeClickable(ldriver,users,300).click();
+            ElementWaits.waitForElementToBeClickable(ldriver,endUser,300).click();
+        }
+        catch (Exception e){
+            System.out.println("Exception On Side Bar Page-------> "+e.getMessage());
+
+        }
+
 
     }
 

@@ -4,24 +4,24 @@
     <listeners>
         <listener class-name="main.java.utils.SuitListener"></listener>
     </listeners>
-<!--   <test name="Test Automation for Kite">-->
-<!--        <parameter name="browserName" value="chrome"></parameter>-->
-<!--        <parameter name="projectName" value="kite"></parameter>-->
-<!--        <classes>-->
-<!--            <class name="test.java.kite.LoginTest"/>-->
-<!--            <class name="test.java.kite.AddEnterpriseTest"/>-->
-<!--            <class name="test.java.kite.CreateAdminTest"/>-->
-<!--            <class name="test.java.kite.FinCreteNewTransferTest"></class>-->
-<!--            <class name="test.java.kite.FinViewTransferTest"></class>-->
-<!--        </classes>-->
-<!--    </test>-->
+   <test name="Test Automation for Kite">
+        <parameter name="browserName" value="chrome"></parameter>
+        <parameter name="projectName" value="kite"></parameter>
+        <classes>
+            <class name="test.java.kite.LoginTest"/>
+            <class name="test.java.kite.AddEnterpriseTest"/>
+            <class name="test.java.kite.CreateAdminTest"/>
+            <class name="test.java.kite.FinCreteNewTransferTest"></class>
+            <class name="test.java.kite.FinViewTransferTest"></class>
+        </classes>
+    </test>
 
     <test name="Test Automation for Dart">
         <parameter name="browserName" value="chrome"></parameter>
         <parameter name="projectName" value="dart"></parameter>
         <classes>
-            <class name="test.java.dart.LoginTest"/>
-<!--            <class name="test.java.dart.AddNewUserTest"></class>-->
+<!--            <class name="test.java.dart.LoginTest"/>-->
+            <class name="test.java.dart.AddNewUserTest"></class>
 <!--            <class name="test.java.dart.AddNewGiftCardTest"></class>-->
 <!--           <class name="test.java.dart.TransactionPageTest"></class>-->
 <!--            <class name="test.java.dart.CompanyAccountStatementTest"></class>-->

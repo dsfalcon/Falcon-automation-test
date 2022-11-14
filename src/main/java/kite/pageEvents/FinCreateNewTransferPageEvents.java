@@ -38,7 +38,7 @@ public class FinCreateNewTransferPageEvents extends CreateNewTransferPageElement
         GPR.click();
         yesBank.click();
         enterPrisePoolAccount.click();
-         String simpleformat = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+         String simpleformat = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
         //String simpleformat = new SimpleDateFormat("15-10-2022").format(new Date());
         //String date = String.valueOf(simpleformat);
         transactionDate.sendKeys(simpleformat);

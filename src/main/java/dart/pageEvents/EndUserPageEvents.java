@@ -81,27 +81,36 @@ public class EndUserPageEvents extends EndUserPageElements {
         if (isFirstNameVailid != null && isFirstNameVailid.equalsIgnoreCase(fstNameErr1)) {
             if (String.valueOf(firstNameErr.getText()).equalsIgnoreCase(fstNameErr1)) {
                 logger.info("Error Found: " + fstNameErr1);
+                System.out.println("Error Found: " + fstNameErr1);
             } else if (String.valueOf(firstNameErr.getText()).equalsIgnoreCase(fstNameErr2)) {
                 logger.info("Error Found: " + fstNameErr2);
+                System.out.println("Error Found: " + fstNameErr2);
             }
+
 
         } else if ((isMobileVailid.equalsIgnoreCase(moNumberErr1))|| (isMobileVailid2.equalsIgnoreCase(moNumberErr2))|| (isMobileVailid3.equalsIgnoreCase(moNumberErr3)))  {
 
             if (String.valueOf(moNumberErr.getText()).equalsIgnoreCase(moNumberErr1)) {
                 logger.info("Error Found: " + moNumberErr1);
+                System.out.println("Error Found: " + moNumberErr1);
             } else if (String.valueOf(moNumberErr.getText()).equalsIgnoreCase(moNumberErr2)) {
                 logger.info("Error Found: " + moNumberErr2);
+                System.out.println("Error Found: " + moNumberErr2);
             } else if (String.valueOf(moNumberErr.getText()).equalsIgnoreCase(moNumberErr3)) {
                 logger.info("Error Found: " + moNumberErr3);
+                System.out.println("Error Found: " + moNumberErr3);
             }
         } else if (isRoleVailid!= null && isRoleVailid.equalsIgnoreCase(roleErr1)) {
             if (String.valueOf(roleErr.getText()).equalsIgnoreCase(roleErr1)) {
                 logger.info("Error Found: " + roleErr1);
+                System.out.println("Error Found: " + roleErr1);
+
             }
 
         } else if (isGenderVailid!= null && isGenderVailid.equalsIgnoreCase(genderErr1)) {
             if (String.valueOf(genderErr.getText()).equalsIgnoreCase(genderErr1)) {
                 logger.info("Error Found: " + genderErr1);
+                System.out.println("Error Found: " + genderErr1);
             }
         } else {
             logger.info("Test Passed");

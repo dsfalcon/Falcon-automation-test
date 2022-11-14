@@ -50,6 +50,7 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
             e.printStackTrace();
         }
         try {
+
             ElementWaits.waitForElementToBeVisible(ldriver,enterpriseId,300).sendKeys(prop.getProperty("qa.enterpriseId"));
 
         nxtButton.click();
@@ -58,6 +59,7 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
         String err2 = "Please enter your company code ";
         String err3 = "Company code must have 2 characters or more ";
         String err4 = "Sorry, this company code is invalid. Please try again! ";
+
 
         List<WebElement> isPresent = driver.findElements(By.xpath("/html/body/app-root/div/app-pre-auth/app-company/div/form/div[1]/div/div"));
         /*Need to check with link text*/

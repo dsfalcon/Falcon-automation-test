@@ -18,6 +18,7 @@ public class LoginTest extends BaseTest {
     @Test/*(dataProvider = "ram")*/
     public void LoginMethodDart() {
 
+
         /* for Login User in Dart portal */
         try {
             LoginPageEvents loginPageEvents = new LoginPageEvents(driver);
