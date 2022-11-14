@@ -85,6 +85,7 @@ public class EndUserPageEvents extends EndUserPageElements {
                 logger.info("Error Found: " + fstNameErr2);
             }
 
+
         } else if ((isMobileVailid.equalsIgnoreCase(moNumberErr1))|| (isMobileVailid2.equalsIgnoreCase(moNumberErr2))|| (isMobileVailid3.equalsIgnoreCase(moNumberErr3)))  {
 
             if (String.valueOf(moNumberErr.getText()).equalsIgnoreCase(moNumberErr1)) {
@@ -97,6 +98,7 @@ public class EndUserPageEvents extends EndUserPageElements {
         } else if (isRoleVailid!= null && isRoleVailid.equalsIgnoreCase(roleErr1)) {
             if (String.valueOf(roleErr.getText()).equalsIgnoreCase(roleErr1)) {
                 logger.info("Error Found: " + roleErr1);
+
             }
 
         } else if (isGenderVailid!= null && isGenderVailid.equalsIgnoreCase(genderErr1)) {

@@ -20,6 +20,7 @@ public class AddNewUserTest extends LoginTest {
         LoginPageEvents loginPageEvents = new LoginPageEvents(driver);
         loginPageEvents.loginMethod();
 
+
         SideBarEvents sideBarEvents = new SideBarEvents(driver);
         sideBarEvents.goToEndUser();
         logger.info("Clicked on SideBar");
