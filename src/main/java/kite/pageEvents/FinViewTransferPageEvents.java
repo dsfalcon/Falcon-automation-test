@@ -28,6 +28,7 @@ public class FinViewTransferPageEvents extends ViewTransferElements {
         selectCompany.click();
         Thread.sleep(2000);
         selectYesBank.click();
+        Thread.sleep(2000);
         selectKitePrepaid.click();
         selectEnterprisePoolAccount.click();
         approveTransaction.click();

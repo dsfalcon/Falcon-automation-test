@@ -98,6 +98,7 @@ public class AddEnterpriseTest extends BaseTest {
 
         Thread.sleep(5000);
         /* ****************** Page Code ****************** */
+        System.out.println(" /* ****************** ADD ENTERPRISE METHOD DONE ****************** */ ");
     }
 
 

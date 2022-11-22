@@ -29,6 +29,7 @@ public class CreateAdminTest extends BaseTest {
         CreateAdminPageEvents createAdminEvents =new CreateAdminPageEvents(driver);
         createAdminEvents.createAdmin(EnterpriseName, MobileNumber);
         logger.addScreenCaptureFromPath("../screenshots/CreateAdminMethod.png");
+        System.out.println(" /* ****************** CreateAdminMethod DONE ****************** */ ");
 
     }
 

@@ -17,9 +17,11 @@ public class ViewTransferElements {
     @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[1]/td[2]/app-title/table/tbody/tr[2]/td/table/tbody/tr/td[1]/app-select-enterprise/div/table/tbody/tr[2]/td/table/tbody/tr/td/div/table/tbody/tr/td[2]")
     @CacheLookup
     public WebElement selectCompany;
-    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-view-transfers/div/table[1]/tbody/tr[1]/td[1]/app-tabs/div/label[5]")
+
+    @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-view-transfers/div/table[1]/tbody/tr[1]/td[1]/app-tabs/div/label[5]/span")
     @CacheLookup
     public WebElement selectYesBank;
+
 
     @FindBy(xpath = "/html/body/app-root/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td[2]/app-view-transfers/div/table[1]/tbody/tr[1]/td[3]/app-program/div/table/tbody/tr/td[3]/img")
     @CacheLookup

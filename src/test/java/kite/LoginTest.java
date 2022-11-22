@@ -16,6 +16,7 @@ public class LoginTest extends BaseTest {
         logger.info(driver.getCurrentUrl());
         loginPageEvents.loginMethod();
         logger.addScreenCaptureFromPath("../screenshots/LoginMethodKite.png");
+        System.out.println(" /* ****************** LOGIN METHOD DONE ****************** */ ");
 
     }
 

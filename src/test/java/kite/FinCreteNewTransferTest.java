@@ -39,6 +39,7 @@ public class FinCreteNewTransferTest extends BaseTest {
         finCreateNewTransferPageEvents.newTransfer(EnterpriseName,Program,FinancialProduct,BankName,AccountType,TransactionDate, mAmount, mUTRNumber, mMMTicketNumber);
 
  //       logger.addScreenCaptureFromPath("../screenshots/FinCreteNewTransferMethod.png");
+        System.out.println(" /* ****************** FinCreteNewTransferMethod DONE ****************** */ ");
 
         Thread.sleep(5000);
         /* ****************** Page Code ****************** */

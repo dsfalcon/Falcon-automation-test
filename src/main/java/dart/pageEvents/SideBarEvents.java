@@ -15,8 +15,12 @@ public class SideBarEvents extends SideBarElements {
 
     public void goToEndUser () {
         try{
-            ElementWaits.waitForElementToBeClickable(ldriver,users,300).click();
-            ElementWaits.waitForElementToBeClickable(ldriver,endUser,300).click();
+            System.out.println("Trying to clicking on the User Menu Option-------> ");
+            ElementWaits.waitForElementToBeClickable(ldriver,users,200).click();
+            System.out.println("Clicked on Menu Option-------> ");
+            System.out.println("Trying to clicking on the Sub Menu End user Option-------> ");
+            ElementWaits.waitForElementToBeClickable(ldriver,endUser,200).click();
+            System.out.println("Clicked on the Sub Menu End user Option-------> ");
         }
         catch (Exception e){
             System.out.println("Exception On Side Bar Page-------> "+e.getMessage());

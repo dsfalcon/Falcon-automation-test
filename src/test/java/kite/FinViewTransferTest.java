@@ -27,7 +27,7 @@ public class FinViewTransferTest extends BaseTest {
         FinViewTransferPageEvents finViewTransferPageEvents = new FinViewTransferPageEvents(driver);
         finViewTransferPageEvents.approveTransfer(EnterpriseName);
 
-        Thread.sleep(5000);
+        System.out.println(" /* ****************** FinViewTransferMethod DONE ****************** */ ");
     }
     @DataProvider(name = "finData")
     Object[][] getData() throws IOException {

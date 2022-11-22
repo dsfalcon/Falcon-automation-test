@@ -38,15 +38,14 @@ public class FinCreateNewTransferPageEvents extends CreateNewTransferPageElement
         GPR.click();
         yesBank.click();
         enterPrisePoolAccount.click();
-         String simpleformat = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
-        //String simpleformat = new SimpleDateFormat("15-10-2022").format(new Date());
-        //String date = String.valueOf(simpleformat);
-        transactionDate.sendKeys(simpleformat);
-        String mAmount = String.valueOf(RandomString.generateNumber(6));
+        String simpleformat = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        System.out.println("Transaction Date for create New :-----> "+ simpleformat);
+       // transactionDate.sendKeys(simpleformat);
+        String mAmount = String.valueOf(RandomString.generateNumber(4));
         transactionAmount.sendKeys(mAmount);
         UTRnumber.sendKeys(RandomString.getAlphaNumericString(16));
          MMTicketNumber.sendKeys("50000"+EnterpriseName);
-        //MMTicketNumber.sendKeys("ame");
+
 
         initiatePayment.click();
         Thread.sleep(4000);

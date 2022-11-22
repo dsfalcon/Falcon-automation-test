@@ -80,11 +80,20 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
         } else {
             logger.info("isvalidElse " + isvalid);
             username.sendKeys(prop.getProperty("qa.username"));
+            Thread.sleep(2000);
+            System.out.println(" /* ****************** User Input Provided ****************** */ ");
+
             sendOTP.click();
             Thread.sleep(2000);
+            System.out.println(" /* ****************** Clicked on send OTP Option ****************** */ ");
+
             enterOTP.sendKeys(prop.getProperty("otp"));
+            Thread.sleep(2000);
+            System.out.println(" /* ****************** OTP Provided ****************** */ ");
+
             loginButton.click();
             Thread.sleep(2000);
+            System.out.println(" /* ****************** Login Button Clicked ****************** */ ");
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         }
         }catch (Exception e){
