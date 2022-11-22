@@ -35,7 +35,7 @@ public class AddGiftCardEvents extends AddGiftCardElements {
         List<WebElement> er = null;
         List<WebElement> er2 = null;
         try {
-            enterBinNUmber.sendKeys("607091");
+            enterBinNUmber.sendKeys("60709");
             enterAmount.sendKeys("1000");
             er2 = ldriver.findElements(By.className("number-error"));
             clickOnSubmitButton.click();
