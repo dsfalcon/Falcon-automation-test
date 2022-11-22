@@ -1,6 +1,7 @@
 package test.java.dart;
 
 import main.java.dart.pageEvents.BusinessReportPageEvents;
+import main.java.dart.pageEvents.LoginPageEvents;
 import main.java.dart.pageEvents.SideBarEvents;
 import main.java.utils.XLUtils;
 import org.testng.annotations.DataProvider;
@@ -29,6 +30,9 @@ public class BusinessReportTest extends LoginTest {
     ) throws InterruptedException, IOException {
 
         /*Add new user to portal */
+        LoginPageEvents loginPageEvents = new LoginPageEvents(driver);
+        loginPageEvents.loginMethod();
+
         SideBarEvents sideBarEvents = new SideBarEvents(driver);
         sideBarEvents.goToBusinessReport();
         logger.info("Clicked on SideBar");
@@ -50,7 +54,7 @@ public class BusinessReportTest extends LoginTest {
     @DataProvider(name="endUserData")
     Object[][] getData() throws IOException {
         String path=System.getProperty("user.dir")+"/datafiles/"+"businessReportData.xlsx";
-        logger.info(path);
+  //      logger.info(path);
         int rownum= XLUtils.getRowCount(path, "Sheet2");
         int colcount= XLUtils.getCellCount(path, "Sheet2", 1);
 
@@ -61,7 +65,7 @@ public class BusinessReportTest extends LoginTest {
                 logindata[i-1][j]= XLUtils.getCellData(path,"Sheet2",i,j);
             }
         }
-        logger.info(String.valueOf("Login Data value....."+logindata));
+ //       logger.info(String.valueOf("Login Data value....."+logindata));
         return logindata;
     }
 

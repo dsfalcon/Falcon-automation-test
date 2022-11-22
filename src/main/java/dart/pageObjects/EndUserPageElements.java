@@ -8,6 +8,10 @@ import test.java.BaseTest;
 public class EndUserPageElements extends BaseTest {
 
     /*Add new user Btton*/
+
+    @FindBy(xpath = "/html/body/app-root/app-post-auth/app-users/div/end-user-header/div/div[2]/div[1]/h4")
+    @CacheLookup
+    public WebElement userCountDiplayed;
     @FindBy(xpath = "/html/body/app-root/app-post-auth/app-users/div/end-user-header/div/div[2]/div[2]/div[1]/button")
     @CacheLookup
     public WebElement addNewUserBtn;

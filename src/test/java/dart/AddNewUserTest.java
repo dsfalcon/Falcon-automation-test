@@ -11,13 +11,15 @@ import java.io.IOException;
 
 public class AddNewUserTest extends LoginTest {
 
+
+
     @Test(dataProvider = "endUserData")
     public void AddNewUserMethod(String fName, String lName, String mNumber, String email) throws InterruptedException, IOException {
-
 
         /*Add new user to portal */
         LoginPageEvents loginPageEvents = new LoginPageEvents(driver);
         loginPageEvents.loginMethod();
+
 
         SideBarEvents sideBarEvents = new SideBarEvents(driver);
         sideBarEvents.goToEndUser();
@@ -31,6 +33,7 @@ public class AddNewUserTest extends LoginTest {
         logger.addScreenCaptureFromPath("../screenshots/AddNewUserMethod.png");
 
     }
+
 
 
     @DataProvider(name="endUserData")
@@ -47,8 +50,6 @@ public class AddNewUserTest extends LoginTest {
                 logindata[i-1][j]= XLUtils.getCellData(path,"Sheet5",i,j);
             }
         }
-    //    logger.info(String.valueOf(logindata));
-
         return logindata;
     }
 

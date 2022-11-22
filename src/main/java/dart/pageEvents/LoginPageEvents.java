@@ -2,6 +2,7 @@ package main.java.dart.pageEvents;
 
 
 import main.java.dart.pageObjects.LoginPageElements;
+import main.java.utils.ElementWaits;
 import main.java.utils.FrameworkConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.By;
@@ -49,14 +50,16 @@ public class LoginPageEvents extends LoginPageElements implements IReporter {
             e.printStackTrace();
         }
         try {
-//        Thread.sleep(3000);
-        enterpriseId.sendKeys(prop.getProperty("qa.enterpriseId"));
+
+            ElementWaits.waitForElementToBeVisible(ldriver,enterpriseId,300).sendKeys(prop.getProperty("qa.enterpriseId"));
+
         nxtButton.click();
         Thread.sleep(2000);
         String err1 = "Enterprise not authorised. ";
         String err2 = "Please enter your company code ";
         String err3 = "Company code must have 2 characters or more ";
         String err4 = "Sorry, this company code is invalid. Please try again! ";
+
 
         List<WebElement> isPresent = driver.findElements(By.xpath("/html/body/app-root/div/app-pre-auth/app-company/div/form/div[1]/div/div"));
         /*Need to check with link text*/

@@ -42,7 +42,7 @@ public class FinCreateNewTransferPageEvents extends CreateNewTransferPageElement
         //String simpleformat = new SimpleDateFormat("15-10-2022").format(new Date());
         //String date = String.valueOf(simpleformat);
         transactionDate.sendKeys(simpleformat);
-        String mAmount = String.valueOf(RandomString.generateNumber(4));
+        String mAmount = String.valueOf(RandomString.generateNumber(6));
         transactionAmount.sendKeys(mAmount);
         UTRnumber.sendKeys(RandomString.getAlphaNumericString(16));
          MMTicketNumber.sendKeys("50000"+EnterpriseName);
